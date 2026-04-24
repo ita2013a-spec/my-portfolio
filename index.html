@@ -1,0 +1,70 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<HTML lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Вязаный декор: Хлопок & Джут</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<BODY>
+	<DIV id="main">
+		<!-- заголовок -->
+		<div id="header-placeholder"></div>
+		
+		
+		
+		
+		<DIV id="all">
+			<!-- левая часть -->
+			<DIV id="left">
+				<UL>
+					<LI><A href="index.html" class="click">Главная страница</A></LI>
+					<LI><A href="services.html">Услуги</A></LI>
+					<LI><A href="price.html">Прайс-лист</A></LI>
+					<LI><A href="gallery.html">Галерея</A></LI>
+					<LI><A href="guest_book.html">Гостевая книга</A></LI>
+					<LI><A href="contacts.html">Контакты</A></LI>
+				</UL>
+				<DIV id="hr-line"></DIV>
+				<DIV id="reklam"><H3>А ЗДЕСЬ <BR>МОЖЕТ БЫТЬ <BR>ВАША РЕКЛАМА</H3></DIV>
+				<DIV id="hr-line"></DIV>
+			</DIV>	
+			<!-- правая часть -->
+			<DIV id="right">
+				<H2>Заголовок</H2>
+				<P>Меня зовут [Ваше Имя], и я верю, что уют складывается из мелочей. Я создаю текстильный декор, который меняет настроение дома. В моих руках простая хлопковая нить превращается в архитектурные кашпо и фактурные аксессуары. Каждая петля — это ручная работа, созданная для того, чтобы ваш интерьер стал теплее, мягче и по-настоящему вашим.</P>
+				<P>Создаю авторский декор ручной работы в техниках вязания спицами и крючком. Специализируюсь на натуральных материалах: хлопке и джуте. Мои работы — это сочетание скандинавской эстетики и высокого качества исполнения. Я помогаю наполнить пространство деталями, которые подчеркивают индивидуальность дома и служат годами.</P>
+				<P>Создаю вещи, которые хочется рассматривать и трогать.</P>
+			</DIV>
+						
+		</DIV>
+		
+		
+		
+		<!-- низ -->
+		<div id="footer-placeholder"></div>
+		
+	</DIV>
+	
+		
+	 <script>
+        function loadHTML(elementId, fileName) {
+            fetch(fileName)
+                .then(response => {
+                    if (response.ok) return response.text();
+                    throw new Error('Ошибка загрузки ' + fileName);
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Загружаем части при открытии страницы
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
+    </script>
+	
+</BODY>
+
+</HTML>

@@ -1,0 +1,39 @@
+/* Убираем отступы у страницы */
+html, body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden; /* Общая страница не скроллится */
+}
+
+.frames-container {
+    display: flex;
+    height: 100vh; /* Высота на весь экран */
+}
+
+.frame {
+    overflow-y: auto; /* Каждое окно скроллится отдельно */
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+/* Настраиваем ширину окон */
+.frame-left {
+    flex: 1; /* Узкое левое окно */
+    background-color: #f0f4f8; /* Бледно-голубой */
+}
+
+.frame-main {
+    flex: 2; /* Широкое центральное окно */
+    background-color: #ffffff;
+}
+
+.frame-right {
+    flex: 1; /* Узкое правое окно */
+    background-color: #e8f5e9; /* Бледно-зеленый */
+}
+
+/* Ваши яркие акценты */
+h2 {
+    color: #1a4b84; /* Синий заголовок */
+    border-bottom: 2px solid #4CAF50; /* Зеленая черта */
+}

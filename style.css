@@ -1,0 +1,169 @@
+BODY {
+	padding: 0;
+	margin: 0;
+	background-color: #666699;
+	background: url(img/fon_body.jpg) repeat;
+	color: #000033;
+	font-family: Courier New, Arial, Helvetica, sans-serif;
+	}
+
+H1 {
+	text-align: center;
+	font-size: 200%;
+	color: #000066;
+	font-weight: bold;
+	}
+
+H2 {
+	text-align: center;
+	font-size: 160%;
+	color: #000066;
+	font-weight: bold;
+	}
+
+H3 {
+	text-align: center;
+	font-size: 140%;
+	color: #000066;
+	font-weight: bold;
+	}
+
+P {
+	text-align: justify;
+	font-size: 120%;
+	}
+
+A {
+	font-weight: bold;
+	font-size: 120%;
+	}
+
+A:hover{
+	color: #990000; /* подсветка пункта меню */
+	}
+
+.click {
+	background-color: #99CCFF; /* текущий раздел пункта меню*/
+	}
+
+LI {
+	list-style-type: none; /* Убираем маркеры */
+	}
+
+
+#hr-line { /* узорная горизонтальная линия */
+	background: url(img/line.png) repeat-x;
+	height: 10px;
+	}
+
+#main { /* фон в теле */
+	width: 882px;
+	background-color: #99CCCC;
+	margin: 0 auto;
+	}
+
+#top { /* верхняя часть - большой рисунок */
+	background: url(img/top_bg.jpg) no-repeat;
+	width: 882px;
+	height: 130px;
+	margin: auto;
+	padding: 10px 0 0 10px;
+	}
+
+#all { /* общий фон центральной части */
+	background:url(img/main.jpg) left repeat-y;
+	width: 882px;
+	margin: 0px 0px 0px 0px;
+	float: left;
+	padding: 10px 0 0 10px;
+	}
+
+#left { /* левая часть - меню */
+	width: 225px;
+	margin: 0px 0px 0px 0px;
+	float: left;
+	padding: 0px 0px 0px 0px;
+	}
+
+#right { /* правая часть (изменяющаяся от странички к страничке) */
+	width: 555px;
+	margin: 0px 0px 0px 0px;
+	float: right;
+	padding: 0px 65px 0px 15px;
+	}
+
+#stripe { /* верхний и нижний край среднего блока */
+	background: url(img/stripe1.jpg) repeat-x;
+	width: 882px;
+	margin: 0px 0px 0px 0px;
+	float: left;
+	padding: 152px 0 0 10px;
+	}
+
+#down { /* нижний блок */
+	background: url(img/down_bg.jpg) no-repeat;
+	width: 882px; 
+	height: 130px;
+	
+	margin: auto;
+	padding: 10px 0 0 10px;
+	float: left;
+	}
+
+#post {
+	text-align: center; /* самая нижняя строка с обращением */
+	}
+
+#reklam { /* блок рекламы в левой части */
+	width: 200px;
+	height: 128px;
+	background-color: #99CCCC;
+	background: url(img/box_reklam.gif) no-repeat;
+	margin: 0px 0px 0px 20px;
+	}
+
+.zag {
+	text-align: left; /* выделение подзаголовков и формы */
+	font-size: 120%;
+	color: #000066;
+	font-weight: bold;
+	}
+
+/* Настройки контейнера бегущей строки */
+.ticker-wrap {
+    width: 100%;
+    overflow: hidden; /* Скрываем всё, что выходит за границы */
+    padding: 0px 0px 0px 0px;
+    white-space: nowrap;
+}
+
+/* Анимация движения */
+.ticker {
+    display: inline-block;
+    padding-left: 100%; /* Начальная позиция за экраном */
+    animation: ticker-animation 20s linear infinite;
+}
+
+/* Эффект остановки при наведении/нажатии */
+.ticker:hover, .ticker:active {
+    animation-play-state: paused; /* Останавливает бегущую строку */
+}
+
+.ticker__item {
+    display: inline-block;
+    padding: 0 50px;
+    font-size: 1.2rem;
+    color: #ffffff; /* Белый текст на синем фоне */
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.ticker__item:hover {
+    color: #4CAF50; /* Зеленый акцент при наведении */
+}
+
+/* Сама анимация */
+@keyframes ticker-animation {
+    0% { transform: translate3d(0, 0, 0); }
+    100% { transform: translate3d(-100%, 0, 0); }
+}
