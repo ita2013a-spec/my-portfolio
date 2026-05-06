@@ -1,23 +1,17 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 <HTML lang="ru">
-<head>
+<HEAD>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вязаный декор: Хлопок & Джут</title>
     <link rel="stylesheet" href="style.css">
-</head>
+	<link rel="icon" href="favicon.png" type="image/png">
+</HEAD>
 
 <BODY>
 	<DIV id="main">
-<!-- заголовок -->
-		<DIV id="top">
-			<IMG src="img/img_comp.jpg" align="left" width=auto"300" height="120" object-fit: cover/>
-			<H1>Визитка простая. Контакты</H1>
-			<H2>tel: 222-22-22  ///  fax: 333-33-33</H2>
-		</DIV>
-<!-- серединка -->
-		<DIV id="stripe"></DIV>
-		
+	<!-- заголовок -->
+	<DIV id="header-placeholder"></DIV>
 		<DIV id="all">
 			<!-- левая часть -->
 			<DIV id="left">
@@ -42,11 +36,10 @@
 					<script type="text/javascript" charset="utf-8" src="https://api-maps.yandex.ru/services/constructor/1.0/js/?sid=YVzM20q0eCMmDtSBVE6F5MSepFsb2Ic4&width=500&height=400&lang=ru_RU&sourceType=constructor"></script>
 				</UL>
 				<DIV id="hr-line"></DIV>
-				<H2>С нами можно связаться:</H2>
+				<H2>Со мной можно связаться:</H2>
 				<UL>
-					<LI>Телефон</LI>
-					<LI>Факс</LI>
-					<LI>Почта</LI>
+					<LI>Телефон: +7(928)614-42-11</LI>
+					<LI>Почта: ita-win8@hotmail.com</LI>
 				</UL>
 				<DIV id="hr-line"></DIV>
 				<H3>Или написать сообщение прямо здесь:</H3>
@@ -57,18 +50,28 @@
 				</FORM>
 				<P><IFRAME name="area" width="550" height="100"></IFRAME></P>
 			</DIV>
-						
 		</DIV>
 		
-		<DIV id="stripe"></DIV>
-		
-<!-- низ -->
-		<DIV id="down">
-			<H2>Не бойся, что не знаешь — бойся, что не учишься</H2>
-			<DIV id="post"><A href="mailto:ita-win8@hotmail.com?subject=Вопрос по HTML и т п">Все вопросы по электронной почте</A></DIV>
-		</DIV>
+	<!-- низ -->
+	<DIV id="footer-placeholder"></DIV>
 	</DIV>
-	
+	<SCRIPT>
+        function loadHTML(elementId, fileName) {
+            fetch(fileName)
+                .then(response => {
+                    if (response.ok) return response.text();
+                    throw new Error('Ошибка загрузки ' + fileName);
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Загружаем части при открытии страницы
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
+    </SCRIPT>	
 </BODY>
 
 </HTML>
