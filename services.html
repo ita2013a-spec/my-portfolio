@@ -1,36 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
 <HTML lang="ru">
-<head>
+<HEAD>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Вязаный декор: Хлопок & Джут</title>
     <link rel="stylesheet" href="style.css">
-</head>
+	<link rel="icon" href="favicon.png" type="image/png">
+</HEAD>
 
 <BODY>
 	<DIV id="main">
 		<!-- заголовок -->
-		<DIV id="top">
-			<IMG src="img/img_comp.jpg" align="left" width=auto"300" height="120" object-fit: cover/>
-			<H1>Визитка простая. Услуги</H1>
-			<!--Контакты бегущей строкой-->
-			<div class="ticker-wrap">
-				<div class="ticker">
-					<H2>Связаться со мной: tel: 222-22-22  ///  fax: 333-33-33</H2>
-				</div>
-			</div>	
-		</DIV>
-		
-		<DIV id="stripe"></DIV>
+		<DIV id="header-placeholder"></DIV>
 		
 		<DIV id="all">
 			<!-- левая часть -->
 			<DIV id="left">
 				<UL>
-					<LI><A href="index.html">Главная страница</A></LI>
-					<LI><A href="services.html" class="click">Услуги</A></LI>
+					<LI><A href="index.html" class="click">Главная страница</A></LI>
+					<LI><A href="services.html">Услуги</A></LI>
+					<LI><A href="gallery.html">Галерея</A></LI>					
 					<LI><A href="price.html">Прайс-лист</A></LI>
-					<LI><A href="gallery.html">Галерея</A></LI>
 					<LI><A href="guest_book.html">Гостевая книга</A></LI>
 					<LI><A href="contacts.html">Контакты</A></LI>
 				</UL>
@@ -59,14 +49,28 @@
 						
 		</DIV>
 		
-		<DIV id="stripe"></DIV>
-		
 		<!-- низ -->
-		<DIV id="down">
-			<H2>Не бойся, что не знаешь — бойся, что не учишься</H2>
-			<DIV id="post"><A href="mailto:ita-win8@hotmail.com?subject=Вопрос по HTML и т п">Все вопросы по электронной почте</A></DIV>
-		</DIV>
+		<DIV id="footer-placeholder"></DIV>
+		
 	</DIV>
+		
+	<SCRIPT>
+        function loadHTML(elementId, fileName) {
+            fetch(fileName)
+                .then(response => {
+                    if (response.ok) return response.text();
+                    throw new Error('Ошибка загрузки ' + fileName);
+                })
+                .then(data => {
+                    document.getElementById(elementId).innerHTML = data;
+                })
+                .catch(error => console.error(error));
+        }
+
+        // Загружаем части при открытии страницы
+        loadHTML('header-placeholder', 'header.html');
+        loadHTML('footer-placeholder', 'footer.html');
+    </SCRIPT>
 	
 </BODY>
 

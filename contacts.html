@@ -10,18 +10,19 @@
 
 <BODY>
 	<DIV id="main">
-	<!-- заголовок -->
-	<DIV id="header-placeholder"></DIV>
+		<!-- заголовок -->
+		<DIV id="header-placeholder"></DIV>
+		
 		<DIV id="all">
 			<!-- левая часть -->
 			<DIV id="left">
 				<UL>
-					<LI><A href="index.html">Главная страница</A></LI>
+					<LI><A href="index.html" class="click">Главная страница</A></LI>
 					<LI><A href="services.html">Услуги</A></LI>
+					<LI><A href="gallery.html">Галерея</A></LI>					
 					<LI><A href="price.html">Прайс-лист</A></LI>
-					<LI><A href="gallery.html">Галерея</A></LI>
 					<LI><A href="guest_book.html">Гостевая книга</A></LI>
-					<LI><A href="contacts.html" class="click">Контакты</A></LI>
+					<LI><A href="contacts.html">Контакты</A></LI>
 				</UL>
 				<DIV id="hr-line"></DIV>
 				<DIV id="reklam"><H3>А ЗДЕСЬ <BR>МОЖЕТ БЫТЬ <BR>ВАША РЕКЛАМА</H3></DIV>
@@ -48,13 +49,14 @@
 					<P class="zag"><LABEL>Сообщение<BR><TEXTAREA name="text" cols="67" rows="5"></TEXTAREA></LABEL></P>
 					<P><INPUT type="reset" name="reset" value="Очистить форму"></P><P><INPUT type="submit" name="submit" value="Отправить данные"></P>
 				</FORM>
-				
 			</DIV>
 		</DIV>
 		
 	<!-- низ -->
-	<DIV id="footer-placeholder"></DIV>
+		<DIV id="footer-placeholder"></DIV>
+		
 	</DIV>
+		
 	<SCRIPT>
         function loadHTML(elementId, fileName) {
             fetch(fileName)
@@ -71,7 +73,8 @@
         // Загружаем части при открытии страницы
         loadHTML('header-placeholder', 'header.html');
         loadHTML('footer-placeholder', 'footer.html');
-    </SCRIPT>	
+    </SCRIPT>
+	
 </BODY>
 
 </HTML>
