@@ -22,7 +22,6 @@ H2 {
 	font-size: 160%;
 	color: #000066;
 	font-weight: bold;
-	background-color: #2e7d32 !important;
 	-webkit-text-stroke: 1px #007bff; /* рамка: Толщина 2px и цвет темно-синий (Navy) */
 	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 	}
