@@ -12,6 +12,9 @@ H1 {
 	font-size: 200%;
 	color: #000066;
 	font-weight: bold;
+	-webkit-text-stroke: 2px #000080; /* рамка: Толщина 2px и цвет темно-синий (Navy) */
+	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);/* Для эстетики можно добавить небольшую мягкую тень */
+	
 	}
 
 H2 {
