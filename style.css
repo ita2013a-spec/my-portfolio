@@ -140,7 +140,7 @@ LI {
     overflow: hidden; /* Скрываем всё, что выходит за границы */
     padding: 0px 0px 0px 0px;
     white-space: nowrap;
-	background-color: #2e7d32 !important;
+	background-color: #f0f4f8 !important;
 }
 
 /* Анимация движения */
