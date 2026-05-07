@@ -12,7 +12,7 @@ H1 {
 	font-size: 200%;
 	color: #000066;
 	font-weight: bold;
-	-webkit-text-stroke: 1px #000080; /* рамка: ’олщина 2px и цвет темно-синий (Navy) */
+	-webkit-text-stroke: 1px #000080;
 	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 	
 	}
@@ -22,7 +22,7 @@ H2 {
 	font-size: 160%;
 	color: #000066;
 	font-weight: bold;
-	-webkit-text-stroke: 1px #007bff; /* рамка: ’олщина 2px и цвет темно-синий (Navy) */
+	-webkit-text-stroke: 1px #007bff;
 	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
 	}
 
@@ -44,30 +44,30 @@ A {
 	}
 
 A:hover{
-	color: #990000; /* подсветка пункта меню */
+	color: #990000; /* ГЇГ®Г¤Г±ГўГҐГІГЄГ  ГЇГіГ­ГЄГІГ  Г¬ГҐГ­Гѕ */
 	}
 
 .click {
-	background-color: #99CCFF; /* текущий раздел пункта меню*/
+	background-color: #99CCFF; /* ГІГҐГЄГіГ№ГЁГ© Г°Г Г§Г¤ГҐГ« ГЇГіГ­ГЄГІГ  Г¬ГҐГ­Гѕ*/
 	}
 
 LI {
-	list-style-type: none; /* Убираем маркеры */
+	list-style-type: none; /* Г“ГЎГЁГ°Г ГҐГ¬ Г¬Г Г°ГЄГҐГ°Г» */
 	}
 
 
-#hr-line { /* узорная горизонтальная линия */
+#hr-line { /* ГіГ§Г®Г°Г­Г Гї ГЈГ®Г°ГЁГ§Г®Г­ГІГ Г«ГјГ­Г Гї Г«ГЁГ­ГЁГї */
 	background: url(img/line.png) repeat-x;
 	height: 10px;
 	}
 
-#main { /* фон в теле */
+#main { /* ГґГ®Г­ Гў ГІГҐГ«ГҐ */
 	width: 882px;
 	background-color: #99CCCC;
 	margin: 0 auto;
 	}
 
-#top { /* верхняя часть - большой рисунок */
+#top { /* ГўГҐГ°ГµГ­ГїГї Г·Г Г±ГІГј - ГЎГ®Г«ГјГёГ®Г© Г°ГЁГ±ГіГ­Г®ГЄ */
 	background: url(img/top_bg.jpg) no-repeat;
 	width: 882px;
 	height: 130px;
@@ -75,7 +75,7 @@ LI {
 	padding: 10px 0 0 10px;
 	}
 
-#all { /* общий фон центральной части */
+#all { /* Г®ГЎГ№ГЁГ© ГґГ®Г­ Г¶ГҐГ­ГІГ°Г Г«ГјГ­Г®Г© Г·Г Г±ГІГЁ */
 	background:url(img/main.jpg) left repeat-y;
 	width: 882px;
 	margin: 0px 0px 0px 0px;
@@ -83,21 +83,21 @@ LI {
 	padding: 10px 0 0 10px;
 	}
 
-#left { /* левая часть - меню */
+#left { /* Г«ГҐГўГ Гї Г·Г Г±ГІГј - Г¬ГҐГ­Гѕ */
 	width: 225px;
 	margin: 0px 0px 0px 0px;
 	float: left;
 	padding: 0px 0px 0px 0px;
 	}
 
-#right { /* правая часть (изменяющаяся от странички к страничке) */
+#right { /* ГЇГ°Г ГўГ Гї Г·Г Г±ГІГј (ГЁГ§Г¬ГҐГ­ГїГѕГ№Г ГїГ±Гї Г®ГІ Г±ГІГ°Г Г­ГЁГ·ГЄГЁ ГЄ Г±ГІГ°Г Г­ГЁГ·ГЄГҐ) */
 	width: 555px;
 	margin: 0px 0px 0px 0px;
 	float: right;
 	padding: 0px 65px 0px 15px;
 	}
 
-#stripe { /* верхний и нижний край среднего блока */
+#stripe { /* ГўГҐГ°ГµГ­ГЁГ© ГЁ Г­ГЁГ¦Г­ГЁГ© ГЄГ°Г Г© Г±Г°ГҐГ¤Г­ГҐГЈГ® ГЎГ«Г®ГЄГ  */
 	background: url(img/stripe1.jpg) repeat-x;
 	width: 882px;
 	margin: 0px 0px 0px 0px;
@@ -105,7 +105,7 @@ LI {
 	padding: 152px 0 0 10px;
 	}
 
-#down { /* нижний блок */
+#down { /* Г­ГЁГ¦Г­ГЁГ© ГЎГ«Г®ГЄ */
 	background: url(img/down_bg.jpg) no-repeat;
 	width: 882px; 
 	height: 130px;
@@ -116,10 +116,10 @@ LI {
 	}
 
 #post {
-	text-align: center; /* самая нижняя строка с обращением */
+	text-align: center; /* Г±Г Г¬Г Гї Г­ГЁГ¦Г­ГїГї Г±ГІГ°Г®ГЄГ  Г± Г®ГЎГ°Г Г№ГҐГ­ГЁГҐГ¬ */
 	}
 
-#reklam { /* блок рекламы в левой части */
+#reklam { /* ГЎГ«Г®ГЄ Г°ГҐГЄГ«Г Г¬Г» Гў Г«ГҐГўГ®Г© Г·Г Г±ГІГЁ */
 	width: 200px;
 	height: 128px;
 	background-color: #99CCCC;
@@ -128,46 +128,46 @@ LI {
 	}
 
 .zag {
-	text-align: left; /* выделение подзаголовков и формы */
+	text-align: left; /* ГўГ»Г¤ГҐГ«ГҐГ­ГЁГҐ ГЇГ®Г¤Г§Г ГЈГ®Г«Г®ГўГЄГ®Гў ГЁ ГґГ®Г°Г¬Г» */
 	font-size: 120%;
 	color: #000066;
 	font-weight: bold;
 	}
 
-/* Настройки контейнера бегущей строки */
+/* ГЌГ Г±ГІГ°Г®Г©ГЄГЁ ГЄГ®Г­ГІГҐГ©Г­ГҐГ°Г  ГЎГҐГЈГіГ№ГҐГ© Г±ГІГ°Г®ГЄГЁ */
 .ticker-wrap {
     width: 100%;
-    overflow: hidden; /* Скрываем всё, что выходит за границы */
+    overflow: hidden; /* Г‘ГЄГ°Г»ГўГ ГҐГ¬ ГўГ±Вё, Г·ГІГ® ГўГ»ГµГ®Г¤ГЁГІ Г§Г  ГЈГ°Г Г­ГЁГ¶Г» */
     padding: 0px 0px 0px 0px;
     white-space: nowrap;
 }
 
-/* Анимация движения */
+/* ГЂГ­ГЁГ¬Г Г¶ГЁГї Г¤ГўГЁГ¦ГҐГ­ГЁГї */
 .ticker {
     display: inline-block;
-    padding-left: 100%; /* Начальная позиция за экраном */
+    padding-left: 100%; /* ГЌГ Г·Г Г«ГјГ­Г Гї ГЇГ®Г§ГЁГ¶ГЁГї Г§Г  ГЅГЄГ°Г Г­Г®Г¬ */
     animation: ticker-animation 20s linear infinite;
 }
 
-/* Эффект остановки при наведении/нажатии */
+/* ГќГґГґГҐГЄГІ Г®Г±ГІГ Г­Г®ГўГЄГЁ ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­ГЁГЁ/Г­Г Г¦Г ГІГЁГЁ */
 .ticker:hover, .ticker:active {
-    animation-play-state: paused; /* Останавливает бегущую строку */
+    animation-play-state: paused; /* ГЋГ±ГІГ Г­Г ГўГ«ГЁГўГ ГҐГІ ГЎГҐГЈГіГ№ГіГѕ Г±ГІГ°Г®ГЄГі */
 }
 
 .ticker__item {
     display: inline-block;
     padding: 0 50px;
     font-size: 1.2rem;
-    color: #ffffff; /* Белый текст на синем фоне */
+    color: #ffffff; /* ГЃГҐГ«Г»Г© ГІГҐГЄГ±ГІ Г­Г  Г±ГЁГ­ГҐГ¬ ГґГ®Г­ГҐ */
     text-transform: uppercase;
     font-weight: bold;
 }
 
 .ticker__item:hover {
-    color: #4CAF50; /* Зеленый акцент при наведении */
+    color: #4CAF50; /* Г‡ГҐГ«ГҐГ­Г»Г© Г ГЄГ¶ГҐГ­ГІ ГЇГ°ГЁ Г­Г ГўГҐГ¤ГҐГ­ГЁГЁ */
 }
 
-/* Сама анимация */
+/* Г‘Г Г¬Г  Г Г­ГЁГ¬Г Г¶ГЁГї */
 @keyframes ticker-animation {
     0% { transform: translate3d(0, 0, 0); }
     100% { transform: translate3d(-100%, 0, 0); }
