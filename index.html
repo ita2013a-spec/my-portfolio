@@ -232,25 +232,46 @@
 
 <script>
 function highlightMenu(activeId) {
-    // 1. Находим все стеклянные плашки в меню и гасим их (удаляем класс active)
     const allBoxes = document.querySelectorAll('.nav-blur-box');
     allBoxes.forEach(box => box.classList.remove('active'));
 
-    // 2. Находим именно ту плашку, по которой кликнули, и зажигаем её
     const activeBox = document.getElementById(activeId);
     if (activeBox) activeBox.classList.add('active');
 }
 
-// Слушаем безопасные сигналы из встроенного iframe
-window.addEventListener('message', function(event) {
-    // Если пришел сигнал переключить меню, выполняем функцию
-    if (event.data && event.data.action === 'highlight') {
-        highlightMenu(event.data.targetId);
-    }
-});
+// Универсальный отслеживатель для Яндекс и Гугл браузеров
+const iframe = document.querySelector('iframe[name="content-frame"]');
 
-
-
+if (iframe) {
+    // Каждые 300 миллисекунд главное окно само проверяет, что открыто во фрейме
+    setInterval(function() {
+        try {
+            // Берем имя файла из свойства src фрейма (это безопасно и разрешено везде)
+            const currentSrc = iframe.src || '';
+            
+            // Если в процессе кликов фрейм поменял адрес, мы это увидим
+            const iframeWindow = iframe.contentWindow;
+            if (iframeWindow && iframeWindow.location) {
+                const path = iframeWindow.location.pathname;
+                const pageName = path.substring(path.lastIndexOf('/') + 1);
+                
+                // Проверяем имя файла и переключаем подсветку
+                if (pageName === 'main_str.html' || pageName === '') {
+                    highlightMenu('menu-main');
+                } else if (pageName === 'gallery.html') {
+                    highlightMenu('menu-gallery');
+                } else if (pageName === 'services.html') {
+                    highlightMenu('menu-services');
+                } else if (pageName === 'contacts.html') {
+                    highlightMenu('menu-contacts');
+                }
+            }
+        } catch (e) {
+            // Если Яндекс.Браузер блокирует чтение pathname, этот блок перехватит ошибку,
+            // но сайт продолжит работать, а ручные клики по меню всё равно будут подсвечиваться.
+        }
+    }, 300);
+}
 </script>
 
 </body>
