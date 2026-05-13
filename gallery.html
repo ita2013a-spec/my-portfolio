@@ -1,90 +1,245 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-<HTML lang="ru">
-<HEAD>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вязаный декор: Хлопок & Джут</title>
-    <link rel="stylesheet" href="style.css">
-	<link rel="icon" href="favicon.png" type="image/png">
-</HEAD>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-<BODY>
-	<DIV id="main">
-		<!-- заголовок -->
-		<DIV id="header-placeholder"></DIV>
+    <div class=blur-box>
+				<table cellpadding="10" border="1"><!-- бордюр потом убрать совсем -->
+					<!-- начало блока для кашпо -->
+					<tr>
+						<td style="width: 15%; text-align: center; vertical-align: middle; padding: 10px;"><img src="gallery/kashpo-00.jpg" class="centered-img" style="width: 100%; height: auto; max-width: 120px;"/></td>
+						<td style="width: 25%; padding: 35px; vertical-align: middle;"><h3 style="margin: 0; color: #000080;">КАШПО</h3></td>
+						<td rowspan="2" style="width: 35%; padding: 10px; vertical-align: top;">
+							<div class="carousel" id="carousel-1">
+								<div class="carousel-inner">
+									<img src="gallery/kashpo-01.jpg" alt="Декоративное кашпо" class="active" onclick="openModal(this.src)">
+									<img src="gallery/kashpo-02.jpg" alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+									<img src="gallery/kashpo-00.jpg" alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+								</div>
+								<!-- Кнопки управления -->
+								<button class="prev" onclick="moveSlide(-1, 'carousel-1')">&#10094;</button>
+								<button class="next" onclick="moveSlide(1, 'carousel-1')">&#10095;</button>
+								<!-- Точечки -->
+								<div class="carousel-dots">
+									<span class="dot active" onclick="currentSlide(0, 'carousel-1')"></span>
+									<span class="dot" onclick="currentSlide(1, 'carousel-1')"></span>
+									<span class="dot" onclick="currentSlide(2, 'carousel-1')"></span>
+								</div>
+							
+							</div>
+						</td>
+						<td rowspan="2" style="width: 25%; padding: 35px; vertical-align: middle;">
+							<h3 style="margin-top: 0; color: #000080; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 5px;">Стоимость работы</h3>
+							<div class="price-list">
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (S)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">1 200 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (M)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">1 600 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (L)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">2 100 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Подвесной держатель</span>
+									<span class="price-dots"></span>
+									<span class="price-value">800 ₽</span>
+								</div>
+							</div>
+							<p style="font-size: 13px; color: #2c3e50; margin-top: 20px; font-style: italic;">* Стоимость указана за работу без учета материалов. Натуральный хлопок и джут рассчитываются отдельно под ваши размеры.</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="padding: 20px; vertical-align: top;">
+							<p><strong>«Уютный подоконник» (Фито-декор):</strong> кашпо разных размеров, подставки под горшки, подвесные держатели.</p>
+							<p><strong>Вязаное кашпо из натурального джута/хлопка.</strong> Стильный и экологичный аксессуар для дома. Каждая петелька создана вручную, что гарантирует уникальность изделия. Прочное плетение отлично держит форму, скрывает недостатки пластиковых горшков и добавляет интерьеру природной эстетики. или: Вязаная оправа для ваших зеленых любимцев. Маленькая деталь, которая делает пространство мягче</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="4" >
+							<div id="hr-line"></div>
+						</td>
+					</tr>
+					<!-- конец блока для кашпо -->
+					
+					<!-- начало блока для корзинок -->
+					<tr>
+						<td style="width: 15%; text-align: center; vertical-align: middle; padding: 10px;"><img src="gallery/kashpo-00.jpg" class="centered-img" style="width: 100%; height: auto; max-width: 120px;"/></td>
+						<td style="width: 25%; padding: 35px; vertical-align: middle;"><h3 style="margin: 0; color: #000080;">КОРЗИНКИ</h3></td>
+						<td rowspan="2" style="width: 50%; padding: 10px; vertical-align: top;">
+							<div class="carousel" id="carousel-2">
+								<div class="carousel-inner">
+									<img src="gallery/korzinka-01.jpg" alt="Декоративное кашпо" class="active" onclick="openModal(this.src)">
+									<img src="gallery/korzinka-02.jpg" alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+									<img src="gallery/korzinka-03.jpg" alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+								</div>
+								<!-- Кнопки управления -->
+								<button class="prev" onclick="moveSlide(-1, 'carousel-2')">&#10094;</button>
+								<button class="next" onclick="moveSlide(1, 'carousel-2')">&#10095;</button>
+								<!-- Точечки -->
+								<div class="carousel-dots">
+									<span class="dot active" onclick="currentSlide(0, 'carousel-2')"></span>
+									<span class="dot" onclick="currentSlide(1, 'carousel-2')"></span>
+									<span class="dot" onclick="currentSlide(2, 'carousel-2')"></span>
+								</div>
+							</div>
+						</td>
+						<td rowspan="2" style="width: 25%; padding: 35px; vertical-align: middle;">
+							<h3 style="margin-top: 0; color: #000080; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 5px;">Стоимость работы</h3>
+							<div class="price-list">
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (S)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">1 200 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (M)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">1 600 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (L)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">2 100 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Подвесной держатель</span>
+									<span class="price-dots"></span>
+									<span class="price-value">800 ₽</span>
+								</div>
+							</div>
+							<p style="font-size: 13px; color: #2c3e50; margin-top: 20px; font-style: italic;">* Стоимость указана за работу без учета материалов. Натуральный хлопок и джут рассчитываются отдельно под ваши размеры.</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="padding: 20px; vertical-align: top;">
+							<p><strong>«Дом для ваших мелочей»:</strong> Порядок в деталях» (Организация пространства): корзинки, коврики, подставки, салфетки, бутылочницы</p>
+							<p><strong>Коврики:</strong> Мягкое утро для ваших ног</p>
+						</td>
+					</tr>		
+					<tr>
+						<td colspan="4" >
+							<div id="hr-line"></div>
+						</td>
+					</tr>					
+					<!-- конец блока для корзинок -->
+									
+					<!-- начало блока для авосек -->
+					<tr>
+						<td style="width: 15%; text-align: center; vertical-align: middle; padding: 10px;"><img src="gallery/avoska-00.jpg" class="centered-img" style="width: 100%; height: auto; max-width: 120px;"/></td>
+						<td style="width: 25%; padding: 35px; vertical-align: middle;"><h3 style="margin: 0; color: #000080;">АВОСЬКИ, СУМОЧКИ</h3></td>
+						<td rowspan="2" style="width: 50%; padding: 10px; vertical-align: top;">
+							<div class="carousel" id="carousel-3">
+								<div class="carousel-inner">
+									<img src="gallery/avoska-01.jpg" alt="Декоративное кашпо" class="active" onclick="openModal(this.src)">
+									<img src="gallery/avoska-02.jpg" alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+									<img src="gallery/avoska-03.jpg" alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+								</div>
+								<!-- Кнопки управления -->
+								<button class="prev" onclick="moveSlide(-1, 'carousel-3')">&#10094;</button>
+								<button class="next" onclick="moveSlide(1, 'carousel-3')">&#10095;</button>
+								<!-- Точечки -->
+								<div class="carousel-dots">
+									<span class="dot active" onclick="currentSlide(0, 'carousel-3')"></span>
+									<span class="dot" onclick="currentSlide(1, 'carousel-3')"></span>
+									<span class="dot" onclick="currentSlide(2, 'carousel-3')"></span>
+								</div>
+							</div>
+						</td>
+						<td rowspan="2" style="width: 25%; padding: 35px; vertical-align: middle;">
+							<h3 style="margin-top: 0; color: #000080; border-bottom: 2px solid #2e7d32; display: inline-block; padding-bottom: 5px;">Стоимость работы</h3>
+							<div class="price-list">
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (S)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">1 200 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (M)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">1 600 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Вязаное кашпо (L)</span>
+									<span class="price-dots"></span>
+									<span class="price-value">2 100 ₽</span>
+								</div>
+								<div class="price-item">
+									<span class="price-name">Подвесной держатель</span>
+									<span class="price-dots"></span>
+									<span class="price-value">800 ₽</span>
+								</div>
+							</div>
+							<p style="font-size: 13px; color: #2c3e50; margin-top: 20px; font-style: italic;">* Стоимость указана за работу без учета материалов. Натуральный хлопок и джут рассчитываются отдельно под ваши размеры.</p>
+						</td>
+					</tr>
+					<tr>
+						<td colspan="2" style="padding: 20px; vertical-align: top;">
+							<p><strong>«Эко-прогулка» (Аксессуары вне дома):</strong> Стиль, который бережет планету</p>
+						</td>
+					</tr>					
+					<!-- конец блока для авосек -->					
 		
-		<DIV id="all">
-			<!-- левая часть -->
-			<DIV id="left">
-				<UL>
-					<LI><A href="index.html">Главная страница</A></LI>
-					<LI><A href="services.html">Услуги</A></LI>
-					<LI><A href="gallery.html" class="click">Галерея</A></LI>					
-					<!-- <LI><A href="price.html">Прайс-лист</A></LI>
-					<LI><A href="guest_book.html">Гостевая книга</A></LI> -->
-					<LI><A href="contacts.html">Контакты</A></LI>
-				</UL>
-				<DIV id="hr-line"></DIV>
-				<DIV id="reklam"><H3>А ЗДЕСЬ <BR>МОЖЕТ БЫТЬ <BR>ВАША РЕКЛАМА</H3></DIV>
-				<DIV id="hr-line"></DIV>
-			</DIV>	
-			<!-- правая часть -->
-			<DIV id="right">
-				<H2>Фотогалерея</H2>
-				<TABLE cellpadding="10">
-					<TR>
-						<TD><IMG src="gallery/fon_body.gif" align="center" /></TD>
-						<TD>Уютный подоконник» (Фито-декор): кашпо разных размеров, подставки под горшки, подвесные держатели</TD>
-					</TR>
-					<TR>
-						<TD><IMG src="gallery/fon_body.gif" align="center" /></TD>
-						<TD>Порядок в деталях» (Организация пространства): корзинки, коврики, подставки, салфетки, бутылочницы</TD>
-					</TR>
-					<TR>
-						<TD><IMG src="gallery/fon_body.gif" align="center" /></TD>
-						<TD>Эко-прогулка» (Аксессуары вне дома): авоськи, сумочки</TD>
-					</TR>
-					<TR>
-						<TD><IMG src="gallery/fon_body.gif" align="center" />Корзинка</TD>
-						<TD>Дом для ваших мелочей</TD>
-					</TR>
-					<TR>
-						<TD><IMG src="gallery/fon_body.gif" align="center" />Коврик</TD>
-						<TD>Мягкое утро для ваших ног</TD>
-					</TR>
-					<TR>
-						<TD><IMG src="gallery/fon_body.gif" align="center" />Авоська </TD>
-						<TD>Стиль, который бережет планету</TD>
-					</TR>
-				</TABLE>
-			</DIV>
-						
-		</DIV>
-		
-		
-		<!-- низ -->
-		<DIV id="footer-placeholder"></DIV>
-		
-	</DIV>
-		
-	<SCRIPT>
-        function loadHTML(elementId, fileName) {
-            fetch(fileName)
-                .then(response => {
-                    if (response.ok) return response.text();
-                    throw new Error('Ошибка загрузки ' + fileName);
-                })
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => console.error(error));
-        }
+	</div>
 
-        // Загружаем части при открытии страницы
-        loadHTML('header-placeholder', 'header.html');
-        loadHTML('footer-placeholder', 'footer.html');
-    </SCRIPT>
+	<script>
+	<!-- скрипт для работы карусели -->
+	// Функция для обновления точек
+	function updateDots(carouselId, index) {
+		const dots = document.querySelectorAll(`#${carouselId} .dot`);
+		dots.forEach(dot => dot.classList.remove('active'));
+		dots[index].classList.add('active');
+	}
+
+	// Перемотка стрелками
+	function moveSlide(direction, carouselId) {
+		const carousel = document.getElementById(carouselId);
+		const slides = carousel.querySelectorAll('.carousel-inner img');
+		let index = Array.from(slides).findIndex(img => img.classList.contains('active'));
+
+		slides[index].classList.remove('active');
+		index = (index + direction + slides.length) % slides.length;
+		slides[index].classList.add('active');
+    
+		updateDots(carouselId, index);
+	}
+
+	// Прямой переход по точке
+	function currentSlide(index, carouselId) {
+		const carousel = document.getElementById(carouselId);
+		const slides = carousel.querySelectorAll('.carousel-inner img');
+    
+		slides.forEach(img => img.classList.remove('active'));
+		slides[index].classList.add('active');
+    
+		updateDots(carouselId, index);
+	}
+
+	function openModal(src) {
+		document.getElementById("full-screen-modal").style.display = "block";
+		document.getElementById("full-img").src = src;
+	}
+
+	function closeModal() {
+		document.getElementById("full-screen-modal").style.display = "none";
+	}
 	
-</BODY>
+	</script>
 
-</HTML>
+<!-- Модальное окно для полноэкранного просмотра -->
+<div id="full-screen-modal" class="modal" onclick="closeModal()">
+    <span class="close-modal">&times;</span>
+    <img class="modal-content" id="full-img">
+</div>
+
+</body>
+</html>

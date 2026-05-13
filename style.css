@@ -1,177 +1,471 @@
-BODY {
-	padding: 0;
-	margin: 0;
-	background-color: #666699;
-	background: url(img/fon_body.jpg) repeat;
-	color: #000033;
-	font-family: Courier New, Arial, Helvetica, sans-serif;
-	}
+/* Подключаем шрифты: Lora для заголовков (элегантный), Montserrat для текста (современный) */
+@import url('https://googleapis.com');
 
-H1 {
-	text-align: center;
-	font-size: 200%;
-	color: #007bff;
-	font-weight: bold;
-	-webkit-text-stroke: 1px #000066; /* �����: ������� 2px � ���� �����-����� (Navy) */
-	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-	
-	}
-
-H2 {
-	text-align: center;
-	font-size: 160%;
-	color: #000066;
-	font-weight: bold;
-	
-	-webkit-text-stroke: 1px #007bff; /* �����: ������� 2px � ���� �����-����� (Navy) */
-	text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
-	}
-
-H3 {
-	text-align: center;
-	font-size: 140%;
-	color: #000066;
-	font-weight: bold;
-	}
-
-P {
-	text-align: justify;
-	font-size: 120%;
-	}
-
-A {
-	font-weight: bold;
-	font-size: 120%;
-	}
-
-A:hover{
-	color: #990000; /* ��������� ������ ���� */
-	}
-
-.click {
-	background-color: #99CCFF; /* ������� ������ ������ ����*/
-	}
-
-LI {
-	list-style-type: none; /* ������� ������� */
-	}
-
-
-#hr-line { /* ������� �������������� ����� */
-	background: url(img/line.png) repeat-x;
-	height: 10px;
-	}
-
-#main { /* ��� � ���� */
-	width: 882px;
-	background-color: #99CCCC;
-	margin: 0 auto;
-	}
-
-#top { /* ������� ����� - ������� ������� */
-	background: url(img/top_bg.jpg) no-repeat;
-	width: 882px;
-	height: 130px;
-	margin: auto;
-	padding: 10px 0 0 10px;
-	}
-
-#all { /* ����� ��� ����������� ����� */
-	background:url(img/main.jpg) left repeat-y;
-	width: 882px;
-	margin: 0px 0px 0px 0px;
-	float: left;
-	padding: 10px 0 0 10px;
-	}
-
-#left { /* ����� ����� - ���� */
-	width: 225px;
-	margin: 0px 0px 0px 0px;
-	float: left;
-	padding: 0px 0px 0px 0px;
-	}
-
-#right { /* ������ ����� (������������ �� ��������� � ���������) */
-	width: 555px;
-	margin: 0px 0px 0px 0px;
-	float: right;
-	padding: 0px 65px 0px 15px;
-	}
-
-#stripe { /* ������� � ������ ���� �������� ����� */
-	background: url(img/stripe1.jpg) repeat-x;
-	width: 882px;
-	margin: 0px 0px 0px 0px;
-	float: left;
-	padding: 152px 0 0 10px;
-	}
-
-#down { /* ������ ���� */
-	background: url(img/down_bg.jpg) no-repeat;
-	width: 882px; 
-	height: 130px;
-	
-	margin: auto;
-	padding: 10px 0 0 10px;
-	float: left;
-	}
-
-#post {
-	text-align: center; /* ����� ������ ������ � ���������� */
-	}
-
-#reklam { /* ���� ������� � ����� ����� */
-	width: 200px;
-	height: 128px;
-	background-color: #99CCCC;
-	background: url(img/box_reklam.gif) no-repeat;
-	margin: 0px 0px 0px 20px;
-	}
-
-.zag {
-	text-align: left; /* ��������� ������������� � ����� */
-	font-size: 120%;
-	color: #000066;
-	font-weight: bold;
-	}
-
-/* ��������� ���������� ������� ������ */
-.ticker-wrap {
-    width: 100%;
-    overflow: hidden; /* �������� ��, ��� ������� �� ������� */
-    padding: 0px 0px 0px 0px;
-    white-space: nowrap;
-	background-color: #ADD8E6;
+body {
+	padding: 40px; 
+	font-family: 'Montserrat', sans-serif; 
+	color: #000080; 
 }
-
-/* �������� �������� */
-.ticker {
-    display: inline-block;
-    padding-left: 100%; /* ��������� ������� �� ������� */
-    animation: ticker-animation 20s linear infinite;
-	
-}
-
-/* ������ ��������� ��� ���������/������� */
-.ticker:hover, .ticker:active {
-    animation-play-state: paused; /* ������������� ������� ������ */
-}
-
-.ticker__item {
-    display: inline-block;
-    padding: 0 50px;
-    font-size: 1.2rem;
-    color: #ffffff; /* ����� ����� �� ����� ���� */
-    text-transform: uppercase;
+h1 { 
+    color: #87CEEB; /* Голубой внутри */
+    -webkit-text-stroke: 2px #000080; /* Темно-синяя рамка */
     font-weight: bold;
 }
 
-.ticker__item:hover {
-    color: #4CAF50; /* ������� ������ ��� ��������� */
+h2 { 
+    font-weight: bold;
 }
 
-/* ���� �������� */
-@keyframes ticker-animation {
-    0% { transform: translate3d(0, 0, 0); }
-    100% { transform: translate3d(-100%, 0, 0); }
+
+
+p {
+	text-align: justify;
+	font-size: 120%;
 }
+
+#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
+	background: url(img/line.png) repeat-x;
+	height: 10px;
+}
+
+table {
+    width: 100%;
+    table-layout: fixed; /* Заставляет колонки строго соблюдать заданную ширину */
+    border-collapse: collapse;
+}
+
+/* Ограничиваем контент внутри ячеек */
+td {
+    overflow: hidden;
+    word-wrap: break-word; /* Чтобы длинный текст не распирал колонку */
+}
+
+.centered-img {
+	display: block;    /* Превращаем в блок */
+	width: auto;
+	height: 130px;
+	border-radius: 20px;
+	border: 5px solid rgba(255, 255, 255, 0.3); /* Стеклянный бортик */
+	margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
+	object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
+}		
+
+.pattern-title {
+    font-size: 20px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: 'Montserrat', sans-serif; /* На жирном шрифте лучше виден рисунок */
+
+    /* Устанавливаем фоновый рисунок */
+    background-image: url('img/top_bg.jpg'); 
+    background-repeat: repeat-x; /* Повтор только по горизонтали */
+
+    /* Магия: обрезаем фон по форме букв */
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    /* Делаем сами буквы прозрачными, чтобы был виден фон под ними */
+    color: transparent;
+
+    /* Добавляем темно-синюю рамку */
+    -webkit-text-stroke: 1px #000080;
+    
+    /* Чтобы текст не сливался с фоном сайта */
+    display: inline-block;
+}
+
+.blur-box {
+    display: inline-block;
+    padding: 10px 20px;
+    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
+    
+    /* Сама магия размытия */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px); /* Для поддержки в Safari */
+    
+    border-radius: 5px;
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Тонкая рамка для четкости */
+}
+
+/* Ф О Т О Г А Л Е Р Е Я */
+
+
+.carousel {
+    position: relative;
+    width: max-content;
+    height: 300px;
+	max-height: 300px;       /* Страховка для разных экранов */
+	margin: 0 auto;          /* Центрирует карусель внутри ячейки таблицы */
+	overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+}
+
+.carousel-inner {
+    height: 100%;
+    display: flex;
+}
+
+
+.carousel-inner img {
+    height: 100%;            /* Картинка строго занимает 300px по высоте */
+    width: auto;             /* Ширина подстраивается автоматически, сохраняя пропорции */
+    object-fit: contain;     /* Гарантирует, что фото не сожмется и не обрежется */
+	display: none; /* Скрываем все фото по умолчанию */
+}
+
+.carousel-inner img.active {
+    display: block; /* Показываем только активное фото */
+    animation: fadeIn 0.8s ease; /* Плавное появление */
+}
+
+/* Сделаем стрелки невидимыми, пока пользователь не навел на карусель */
+.carousel .prev, .carousel .next {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.carousel:hover .prev, .carousel:hover .next {
+    opacity: 1;
+}
+
+
+/* Кнопки-стрелки */
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    color: #000080; /* Ваш темно-синий */
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: 0.3s;
+}
+
+.prev:hover, .next:hover { background: rgba(255, 255, 255, 0.5); }
+.prev { left: 10px; }
+.next { right: 10px; }
+
+@keyframes fadeIn {
+    from { opacity: 0.4; }
+    to { opacity: 1; }
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom: 25px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 8px;
+	z-index: 10; /* Чтобы точки были точно поверх фото */
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(5px);
+    border-radius: 50%;
+    cursor: pointer;
+    border: 1px solid rgba(0, 0, 128, 0.2); /* Тонкий темно-синий контур */
+    transition: 0.3s;
+}
+
+.dot.active {
+    background: #000080; /* Темно-синий для активной точки */
+    transform: scale(1.2);
+}
+
+.dot:hover {
+    background: rgba(255, 255, 255, 0.8);
+}
+
+/* окно увеличенного фото в галерее */
+.modal {
+    display: none; /* Скрыто по умолчанию */
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8); /* Темный фон */
+    backdrop-filter: blur(10px); /* Размытие фона сайта */
+    cursor: zoom-out;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    animation: zoomIn 0.3s;
+}
+
+.close-modal {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: white;
+    font-size: 50px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+@keyframes zoomIn {
+    from { transform: translate(-50%, -50%) scale(0.7); opacity: 0; }
+    to { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+}
+
+.price-list {
+    margin-top: 15px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.price-item {
+    display: flex;
+    align-items: flex-end;
+    margin-bottom: 12px;
+    color: #2c3e50;
+}
+
+.price-name {
+    font-weight: 500;
+    white-space: nowrap; /* Чтобы название не переносилось раньше времени */
+}
+
+/* Создаем автоматические точки между названием и ценой */
+.price-dots {
+    flex: 1;
+    border-bottom: 2px dotted rgba(46, 125, 50, 0.4); /* Полупрозрачные зеленые точки */
+    margin: 0 10px;
+    position: relative;
+    top: -4px; /* Приподнимаем точки до уровня центра букв */
+}
+
+.price-value {
+    font-weight: bold;
+    color: #000080; /* Ваш фирменный темно-синий */
+    white-space: nowrap;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(2, 200px);
+    gap: 15px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gallery-grid img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, border-color 0.3s;
+}
+
+.gallery-grid img:hover {
+    transform: scale(1.02);
+    border-color: #1a4b84; /* Синий акцент при наведении */
+}
+
+/* Настройка асимметрии: делаем первую картинку большой */
+.gallery-grid img:nth-child(1) {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+
+/* Контейнер карусели (ограничивает ширину по центру сайта) */
+.multi-carousel {
+    position: relative;
+    max-width: 1200px; /* Максимальная ширина ряда */
+    margin: 40px auto;
+    padding: 0 60px;   /* Отступы по бокам, чтобы стрелки не закрывали фото */
+    box-sizing: border-box;
+}
+
+/* Окно просмотра (рамка, через которую мы видим только 5 фото) */
+.carousel-viewport {
+    width: 100%;
+    overflow: hidden;  /* Прячет 6-ю, 7-ю и 8-ю картинки за правым краем */
+    border-radius: 12px;
+}
+
+/* Лента, в которую выстраиваются картинки */
+.carousel-track {
+    display: flex;
+    gap: 15px;         /* Расстояние между картинками */
+	transform: translateX(0); /* Начальная позиция */
+    transition: transform 0.5s ease-in-out; /* Плавность скольжения */
+}
+
+/* Настройка самих картинок */
+.carousel-track img {
+    /* Формула делит 100% ширины на 5 равных частей с учетом четырех отступов по 15px */
+    flex: 0 0 calc((100% - (15px * 4)) / 5); 
+    
+    /* Запрещает картинкам сжиматься. Это критически важно! */
+    flex-shrink: 0; 
+    
+    height: 220px;     /* Фиксированная высота ряда */
+    object-fit: cover; /* Защита от искажения пропорций фото */
+    border-radius: 8px;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s;
+}
+
+/* Легкий интерактив при наведении на фото */
+.carousel-track img:hover {
+    transform: scale(1.03);
+    border-color: #1a4b84; /* Фирменный синий контур */
+}
+
+/* Стиль для стрелок «влево» и «вправо» */
+.multi-carousel .prev, .multi-carousel .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    color: #000080; /* Ваш темно-синий цвет */
+    padding: 12px 15px;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: 0.3s;
+}
+
+.multi-carousel .prev { left: 10px; }
+.multi-carousel .next { right: 10px; }
+.multi-carousel .prev:hover, .multi-carousel .next:hover { 
+    background: rgba(255, 255, 255, 0.6); 
+}
+
+/* Адаптивность: на экранах меньше 768px показываем 2 картинки вместо 5 */
+@media (max-width: 768px) {
+    .carousel-track img {
+        flex: 0 0 calc((100% - 15px) / 2); 
+    }
+}
+
+/* для сервиса от гугла */
+/* Настройка заголовка (голубой внутри, темно-синяя рамка) */
+.services-title {
+    font-size: 36px;
+    font-weight: bold;
+    color: #87CEEB; /* Небесно-голубой */
+    -webkit-text-stroke: 1.5px #000080; /* Темно-синий контур */
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    font-family: 'Lora', serif;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+/* Сетка для карточек */
+.services-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+    flex-wrap: wrap; /* Чтобы на телефонах карточки вставали друг под друга */
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Сама «стеклянная» карточка */
+.service-card {
+    background: rgba(255, 255, 255, 0.15); /* Полупрозрачный белый */
+    backdrop-filter: blur(10px);           /* Эффект матового стекла */
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3); /* Светящийся бортик */
+    border-radius: 16px;
+    padding: 30px;
+    width: 300px; /* Фиксированная ширина карточки */
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s;
+}
+
+/* Эффект при наведении на карточку */
+.service-card:hover {
+    transform: translateY(-8px); /* Карточка изящно приподнимается */
+    background: rgba(255, 255, 255, 0.25); /* Становится чуть светлее */
+    box-shadow: 0 15px 35px rgba(26, 75, 132, 0.15); /* Мягкая синеватая тень */
+}
+
+.service-icon {
+    font-size: 40px;
+    margin-bottom: 15px;
+}
+
+.service-card h3 {
+    font-family: 'Lora', serif;
+    color: #000080; /* Темно-синий */
+    margin: 0 0 15px 0;
+    font-size: 22px;
+}
+
+.service-card p {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50; /* Благородный темно-серый */
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex-grow: 1; /* Выталкивает кнопку всегда вниз, чтобы карточки были одной высоты */
+}
+
+.service-time {
+    font-size: 12px;
+    color: #2e7d32; /* Зеленый акцент для сроков */
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Кнопка действия */
+.service-btn {
+    display: inline-block;
+    background: #1a4b84; /* Ваш глубокий синий */
+    color: white;
+    text-decoration: none;
+    padding: 10px 25px;
+    border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    font-weight: bold;
+    transition: background 0.3s, transform 0.2s;
+    border: 1px solid transparent;
+}
+
+.service-btn:hover {
+    background: #2e7d32; /* Сменяется на зеленый при наведении */
+    transform: scale(1.05);
+}
+

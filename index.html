@@ -1,66 +1,257 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
-<HTML lang="ru">
-<HEAD>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Вязаный декор: Хлопок & Джут</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Крючком и спицами</title>
 	<link rel="icon" href="favicon.png" type="image/png">
-</HEAD>
-
-<BODY>
-	<DIV id="main">
-		<!-- заголовок -->
-		<DIV id="header-placeholder"></DIV>
-		
-		<DIV id="all">
-			<!-- левая часть -->
-			<DIV id="left">
-				<UL>
-					<LI><A href="index.html" class="click">Главная страница</A></LI>
-					<LI><A href="services.html">Услуги</A></LI>
-					<LI><A href="gallery.html">Галерея</A></LI>					
-					<LI><A href="price.html">Прайс-лист</A></LI>
-					<!-- <LI><A href="guest_book.html">Гостевая книга</A></LI> -->
-					<LI><A href="contacts.html">Контакты</A></LI>
-				</UL>
-				<DIV id="hr-line"></DIV>
-				<DIV id="reklam"><H3>А ЗДЕСЬ <BR>МОЖЕТ БЫТЬ <BR>ВАША РЕКЛАМА</H3></DIV>
-				<DIV id="hr-line"></DIV>
-			</DIV>	
-			<!-- правая часть -->
-			<DIV id="right">
-				<H2>Вязаный декор: Хлопок & Джут</H2>
-				<P>Добро пожаловать в мир, где нити создают уют! Меня зовут Татьяна, и я знаю, как добавить вашему дому тепла и характера. Я верю, что уют складывается из мелочей. Я создаю текстильный декор, который меняет настроение дома. В моих руках простая нить превращается в архитектурные кашпо и фактурные аксессуары. Каждая петля — это ручная работа, созданная для того, чтобы ваш интерьер стал теплее, мягче и по-настоящему вашим.</P>
-				<P>В каждой моей работе — магия натуральной нити. Влюбляю в тактильный декор и доказываю, что вязаные вещи — это современно и стильно.</P>
-				<P>От лаконичных кашпо до стильных авосек — каждая петелька связана с любовью и вниманием к деталям. Работаю с мягким хлопком для ваших спален и детских, и с прочным джутом для функционального декора. Заходите, выбирайте свой идеальный аксессуар или давайте придумаем что-то уникальное под ваш интерьер!</P>
-			</DIV>
-						
-		</DIV>
-
-		<!-- низ -->
-		<DIV id="footer-placeholder"></DIV>
-		
-	</DIV>
-		
-	<SCRIPT>
-        function loadHTML(elementId, fileName) {
-            fetch(fileName)
-                .then(response => {
-                    if (response.ok) return response.text();
-                    throw new Error('Ошибка загрузки ' + fileName);
-                })
-                .then(data => {
-                    document.getElementById(elementId).innerHTML = data;
-                })
-                .catch(error => console.error(error));
+	<style>
+        body { margin: 0; 
+			display: flex; 
+			height: 100vh; 
+			font-family: 'Montserrat', sans-serif; 
+			overflow: hidden; 
+			background: url(img/fon_body.jpg) repeat;
+			}
+		        
+        /* Левое узкое меню */
+        nav { 
+            width: 200px;
+			height: 100vh;			
+            background: url(img/down_bg.jpg) repeat;
+            color: white; 
+            display: flex; 
+            flex-direction: column; 
+            padding: 20px;
+            box-sizing: border-box;
+			position: relative; /* Обязательно для позиционирования линии */
         }
 
-        // Загружаем части при открытии страницы
-        loadHTML('header-placeholder', 'header.html');
-        loadHTML('footer-placeholder', 'footer.html');
-    </SCRIPT>
-	
-</BODY>
+		/* Создаем вертикальную линию из рисунка */
+		nav:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;           /* Прижимаем к правому краю nav */
+			width: 8px;        /* Ширина вашей линии */
+			height: 100%;       /* На всю высоту меню */
+			background-image: url('img/line_y.png');
+			background-repeat: repeat-y; /* Повтор строго сверху вниз */
+			background-size: contain;    /* Чтобы рисунок вписался в 15px по ширине */
+		}
+		
+        nav a { 
+            color: #000080;
+            text-decoration: none; 
+            margin: 10px 0; 
+            font-weight: bold;
+        }
 
-</HTML>
+        nav a:hover { color: white; }
+			/* Основная область */
+			.main-wrapper { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+        }
+		
+		/* Специальный класс для ссылок или заголовков в меню */
+		.nav-blur-box {
+			display: block;            /* Растягиваем на всю ширину меню */
+			padding: 12px;
+			margin: 10px 5px;
+    
+			/* Используем белый цвет, но всего на 15% прозрачности */
+			background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 100%);
+    
+			/* Глубокое размытие */
+			backdrop-filter: blur(5px);
+			-webkit-backdrop-filter: blur(5px);
+    
+			/* Белая полупрозрачная рамка добавит блеска краям */
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			border-radius: 10px;
+    
+			/* Мягкое свечение вместо черной тени */
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+		}
+
+		.nav-blur-box:hover {
+			background: rgba(0, 0, 0, 0.4); /* Затемнение при наведении */
+		}		
+
+		.nav-blur-box.active {
+			background: rgba(200, 125, 50, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
+			border-left: 4px solid #ffffff;              /* Белая акцентная полоса слева */
+			box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+		}
+
+		/* Меняем цвет ссылки внутри активной плашки */
+		.nav-blur-box.active a {
+			color: #ffffff !important; 
+			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+		}
+
+        iframe { 
+            flex: 1; 
+            border: none; 
+            width: 100%; 
+        }
+
+        /* Бегущая строка внизу с размытым фоном*/
+        .ticker-wrap { 
+            /* Бледно-голубой полупрозрачный фон */
+			background: rgba(173, 216, 230, 0.2); 
+    
+			/* Эффект размытия заднего фона */
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px); /* Для поддержки в Safari */
+    
+			/* Тонкая рамка сверху для отделения от контента */
+			border-top: 1px solid rgba(255, 255, 255, 0.3);
+           color: #2c3e50; 
+			padding: 10px; 
+			overflow: hidden; 
+            white-space: nowrap;
+			color: #2c3e50; /* Голубой внутри */
+			font-weight: bold;		
+        }
+
+        .ticker { display: inline-block; animation: scroll 15s linear infinite; }
+        .ticker:hover { animation-play-state: paused; cursor: pointer; }
+
+        @keyframes scroll {
+            0% { transform: translateX(100vw); }
+            100% { transform: translateX(-100%); }
+        }
+		
+		#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
+			background: url(img/line.png) repeat-x;
+			height: 10px;
+		}
+		
+		.centered-img {
+			display: block;    /* Превращаем в блок */
+			border-radius: 20px;
+			border: 5px solid rgba(255, 255, 255, 0.3); /* Стеклянный бортик */
+			margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
+			object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
+		}
+		
+		.footer-contacts {
+			display: flex;
+			justify-content: space-around; /* Распределяем контакты по всей ширине */
+			flex-wrap: wrap;               /* Чтобы на телефонах блоки вставали друг под друга */
+			padding: 20px;
+			background: rgba(255, 255, 255, 0.1); 
+			backdrop-filter: blur(5px);
+			border-top: 1px solid rgba(255, 255, 255, 0.2);
+			font-family: 'Montserrat', sans-serif;
+		}
+
+		.contact-item {
+			margin: 10px;
+			text-align: center;
+			color: #2c3e50; /* Ваш темно-серый/синий цвет текста */
+		}
+
+		.contact-item span {
+			display: block;
+			font-size: 12px;
+			text-transform: uppercase;
+			letter-spacing: 1px;
+			color: #000080; /* Темно-синий акцент */
+			margin-bottom: 5px;
+		}
+
+		.contact-item a {
+			color: #1a4b84;
+			text-decoration: none;
+			border-bottom: 1px dashed #1a4b84; /* Пунктирное подчеркивание выглядит стильно */
+			transition: 0.3s;
+		}
+
+		.contact-item a:hover {
+			color: #4CAF50; /* Зеленый при наведении (как в бегущей строке) */
+			border-bottom-color: #4CAF50;
+		}
+		
+    </style>
+</head>
+
+<body>
+    <nav>
+		<img src="img/faktura.jpg" class="centered-img" width="130" height="130" />
+		<!-- Передаем в функцию ID плашки, которую нужно подсветить -->
+		<div class="nav-blur-box active" id="menu-main"> <!-- Задаем active первой по умолчанию -->
+			<a href="main_str.html" target="content-frame" onclick="highlightMenu('menu-main')">Главная страница</a>
+		</div>
+		<div class="nav-blur-box" id="menu-gallery">
+			<a href="gallery.html" target="content-frame" onclick="highlightMenu('menu-gallery')">Галерея и прайс</a>
+		</div>
+		<div class="nav-blur-box" id="menu-services">
+			<a href="services.html" target="content-frame" onclick="highlightMenu('menu-services')">Услуги и рекомендации</a>
+		</div>		
+		
+		<div class="nav-blur-box" id="menu-contacts">
+			<a href="contacts.html" target="content-frame" onclick="highlightMenu('menu-contacts')">Контакты</a>
+		</div>		
+    </nav>
+
+    <div class="main-wrapper">
+        <!-- Сюда грузятся страницы -->
+        <iframe name="content-frame" src="main_str.html"></iframe>
+		<!-- бегущая строка с контактами -->
+		<!-- <div class="ticker-wrap">
+            <div class="ticker">
+                СВЯЗАТЬСЯ СО МНОЙ: <a href="tel:+79286144211"> +7 (928) 614-42-11 </a> ЗВОНИТЕ И ПИШИТЕ
+            </div>
+        </div> -->
+		<div id="hr-line"></div>
+
+		<div class="footer-contacts">
+			<div class="contact-item">
+				<span>📍 Мастерская:</span>
+				<p>г. Ростов-на-Дону</p>
+			</div>
+    
+			<div class="contact-item">
+				<span>📞 Телефон / WhatsApp:</span>
+				<p><a href="tel:+79286144211">+7 (928) 614-42-11</a></p>
+			</div>
+    
+			<div class="contact-item">
+				<span>✉️ Соцсети и мессенджеры:</span>
+				<div class="social-links">
+					<a href="https://t.me" target="_blank">Telegram</a>
+					<a href="https://wa.me" target="_blank">WhatsApp</a>
+				</div>
+			</div>
+		</div>
+    </div>
+
+<script>
+function highlightMenu(activeId) {
+    // 1. Находим все стеклянные плашки в меню и гасим их (удаляем класс active)
+    const allBoxes = document.querySelectorAll('.nav-blur-box');
+    allBoxes.forEach(box => box.classList.remove('active'));
+
+    // 2. Находим именно ту плашку, по которой кликнули, и зажигаем её
+    const activeBox = document.getElementById(activeId);
+    if (activeBox) activeBox.classList.add('active');
+}
+
+// Слушаем безопасные сигналы из встроенного iframe
+window.addEventListener('message', function(event) {
+    // Если пришел сигнал переключить меню, выполняем функцию
+    if (event.data && event.data.action === 'highlight') {
+        highlightMenu(event.data.targetId);
+    }
+});
+
+
+
+</script>
+
+</body>
+</html>
