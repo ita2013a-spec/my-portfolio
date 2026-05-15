@@ -2,122 +2,139 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+	<link href="googleapis.com" rel="stylesheet">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	    <title>Крючком и спицами: Главная</title>
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-    
-	
-	<div class=blur-box>
-		<P>Добро пожаловать в мир, где нити создают уют! Меня зовут Татьяна, и я знаю, как добавить вашему дому тепла и характера. Я верю, что уют складывается из мелочей. Я создаю текстильный декор, который меняет настроение дома. В моих руках простая нить превращается в архитектурные кашпо и фактурные аксессуары. Каждая петля — это ручная работа, созданная для того, чтобы ваш интерьер стал теплее, мягче и по-настоящему Вашим.</P>
+	<div class="about-text-zone">
+		<h1>Добро пожаловать в мир, где нити создают уют!</h1>
+		<h2><strong>Меня зовут Татьяна, и я знаю, как добавить вашему дому тепла, характера и природной эстетики.</strong></h2>
+	</div>	
+	<div class="about-wrapper">
+        <!-- Левый блок: Фотография мастера или процесса -->
+        <div class="about-photo-zone">
+            <img src="img/hello2.jpg" alt="Процесс создания декора" class="about-me-img">
+        </div>
+        <!-- Правый блок: Текст о себе в стеклянной плашке -->
+        <div class="about-text-zone">
+            <p>Я верю, что уют складывается из мелочей, и вязаные вещи в интерьере — это современно, стильно и экологично. Я создаю текстильный декор, который меняет настроение дома. В моих руках простая нить превращается в архитектурные кашпо и фактурные аксессуары. В своей мастерской я объединяю абсолютно разные по характеру материалы, например:</p>
+            <ul class="about-materials">
+                <li><span>🧶</span> <strong>Воздушный хлопок</strong> — для нежности, легкости и свежести в спальнях и детских комнатах.</li>
+                <li><span>🌾</span> <strong>Фактурный джут</strong> — для любителей эко-стиля, брутальных форм и прочного, долговечного декора.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="about-text-zone">
+		<p>В каждой моей работе — магия натуральной нити, ровные петельки и внимание к деталям. От лаконичных кашпо и стильных авосек до уютных ковриков — я создаю вещи, которые делают Ваш интерьер особенным. Давайте наполнять Ваш дом красотой вместе!</p><P>  Я создаю текстильный декор, который меняет настроение дома. В моих руках простая нить превращается в архитектурные кашпо и фактурные аксессуары. Каждая петелька — это ручная работа, созданная для того, чтобы интерьер стал теплее, мягче и по-настоящему Вашим.</P>
 	</div>
 	
 	<!-- карусель -->
-<div class="multi-carousel">
-    <!-- Окно просмотра -->
-    <div class="carousel-viewport" onmouseenter="clearInterval(autoPlayTimer)" onmouseleave="startAutoPlay()">
-        <div class="carousel-track" id="multi-track">
-            <!-- Сюда JavaScript сам вставит случайные картинки -->
-        </div>
-    </div>
-    <!-- Кнопки управления -->
-    <button class="prev" onclick="moveMultiSlide(-1)">❮</button>
-    <button class="next" onclick="moveMultiSlide(1)">❯</button>
-</div>
-
-
-
+	<div class="multi-carousel">
+		<!-- Окно просмотра -->
+		<div class="carousel-viewport" onmouseenter="clearInterval(autoPlayTimer)" onmouseleave="startAutoPlay()">
+			<div class="carousel-track" id="multi-track">
+				<!-- Сюда JavaScript сам вставит случайные картинки -->
+			</div>
+		</div>
+		<!-- Кнопки управления -->
+		<button class="prev" onclick="moveMultiSlide(-1)">❮</button>
+		<button class="next" onclick="moveMultiSlide(1)">❯</button>
+	</div>
 
 	<!-- конец карусели -->
-	<div class=blur-box>	
+	<div class="about-text-zone">	
 		<P>В каждой моей работе — магия натуральной нити. Влюбляю в тактильный декор и доказываю, что вязаные вещи — это современно и стильно.<br><br>От лаконичных кашпо до стильных авосек — каждая петелька связана с любовью и вниманием к деталям. Работаю с мягким хлопком для ваших спален и детских, и с прочным джутом для функционального декора. Заходите, выбирайте свой идеальный аксессуар или давайте придумаем что-то уникальное под ваш интерьер!</P>
 		<H3>Оденьте ваш дом в уют! Вещи ручной работы превращают обычную вещь в стильный элемент декора</H3>
 	</div>
 
-<script>
-const totalPhotosInGallery = 11; // Сколько всего фото в вашей папки
-const photosToLoad = totalPhotosInGallery;         // Сколько случайных фото загрузить в карусель (должно быть больше 5)
+	<script>
+	const totalPhotosInGallery = 12; // Сколько всего фото в вашей папки
+	const photosToLoad = totalPhotosInGallery;         // Сколько случайных фото загрузить в карусель (должно быть больше 5)
 
-let autoPlayTimer; // Переменная для хранения таймера
+	let autoPlayTimer; // Переменная для хранения таймера
 
-// 1. Функция генерации случайных уникальных номеров картинок
-function generateRandomIndexes() {
-    let numbers = [];
-    while (numbers.length < photosToLoad) {
-        let r = Math.floor(Math.random() * totalPhotosInGallery) + 1;
-        if (numbers.indexOf(r) === -1) numbers.push(r);
-    }
-    return numbers;
-}
+	// 1. Функция генерации случайных уникальных номеров картинок
+	function generateRandomIndexes() {
+		let numbers = [];
+		while (numbers.length < photosToLoad) {
+			let r = Math.floor(Math.random() * totalPhotosInGallery) + 1;
+			if (numbers.indexOf(r) === -1) numbers.push(r);
+		}
+		return numbers;
+	}
 
-// 2. Автоматическое заполнение карусели при загрузке страницы
-const randomImgNumbers = generateRandomIndexes();
-const trackContainer = document.getElementById('multi-track');
+	// 2. Автоматическое заполнение карусели при загрузке страницы
+	const randomImgNumbers = generateRandomIndexes();
+	const trackContainer = document.getElementById('multi-track');
 
-randomImgNumbers.forEach((imgNumber) => {
-    const img = document.createElement('img');
-    img.src = `main-carusel/${imgNumber}.jpg`;
-    img.alt = "Вязаный декор ручной работы";
+	randomImgNumbers.forEach((imgNumber) => {
+		const img = document.createElement('img');
+		img.src = `main-carusel/${imgNumber}.jpg`;
+		img.alt = "Вязаный декор ручной работы";
     
-    // При клике по-прежнему будет открываться ваше модальное окно с увеличением
-    img.onclick = function() { openModal(this.src); }; 
+		// При клике по-прежнему будет открываться ваше модальное окно с увеличением
+		img.onclick = function() { openModal(this.src); }; 
     
-    trackContainer.appendChild(img);
-});
+		trackContainer.appendChild(img);
+	});
 
-// 3. Функция бесконечной прокрутки (Влево/Вправо)
-function moveMultiSlide(direction) {
-    // Каждый раз при ручном нажатии сбрасываем автоплей, чтобы он не мешал пользователю
-    resetAutoPlay();
+	// 3. Функция бесконечной прокрутки (Влево/Вправо)
+	function moveMultiSlide(direction) {
+		// Каждый раз при ручном нажатии сбрасываем автоплей, чтобы он не мешал пользователю
+		resetAutoPlay();
 
-    const track = document.getElementById('multi-track');
-    const images = track.querySelectorAll('img');
-    if (images.length === 0) return;
+		const track = document.getElementById('multi-track');
+		const images = track.querySelectorAll('img');
+		if (images.length === 0) return;
     
-    // Перемотка ВПРАВО
-    if (direction === 1) {
-        const firstImg = track.querySelector('img');
-        track.style.transition = 'transform 0.5s ease-in-out';
-        const stepWidth = firstImg.getBoundingClientRect().width + 15;
-        track.style.transform = `translateX(-${stepWidth}px)`;
+		// Перемотка ВПРАВО
+		if (direction === 1) {
+			const firstImg = track.querySelector('img');
+			track.style.transition = 'transform 0.5s ease-in-out';
+			const stepWidth = firstImg.getBoundingClientRect().width + 15;
+			track.style.transform = `translateX(-${stepWidth}px)`;
         
-        setTimeout(() => {
-            track.style.transition = 'none'; 
-            track.appendChild(firstImg);     
-            track.style.transform = 'translateX(0)'; 
-        }, 500);
-    } 
-    // Перемотка ВЛЕВО
-    else if (direction === -1) {
-        const lastImg = images[images.length - 1];
-        const stepWidth = lastImg.getBoundingClientRect().width + 15;
+			setTimeout(() => {
+				track.style.transition = 'none'; 
+				track.appendChild(firstImg);     
+				track.style.transform = 'translateX(0)'; 
+			}, 500);
+		} 
+		// Перемотка ВЛЕВО
+		else if (direction === -1) {
+			const lastImg = images[images.length - 1];
+			const stepWidth = lastImg.getBoundingClientRect().width + 15;
         
-        track.style.transition = 'none';
-        track.insertBefore(lastImg, track.firstChild);
-        track.style.transform = `translateX(-${stepWidth}px)`;
+			track.style.transition = 'none';
+			track.insertBefore(lastImg, track.firstChild);
+			track.style.transform = `translateX(-${stepWidth}px)`;
         
-        setTimeout(() => {
-            track.style.transition = 'transform 0.5s ease-in-out';
-            track.style.transform = 'translateX(0)';
-        }, 50);
-    }
-}
+			setTimeout(() => {
+				track.style.transition = 'transform 0.5s ease-in-out';
+				track.style.transform = 'translateX(0)';
+			}, 50);
+		}
+	}
 
-// 4. Логика Автоплея
-function startAutoPlay() {
-    // Карусель будет шагать вправо каждые 3000 миллисекунд (3 секунды)
-    autoPlayTimer = setInterval(() => {
-        moveMultiSlide(1);
-    }, 3000); 
-}
+	// 4. Логика Автоплея
+	function startAutoPlay() {
+		// Карусель будет шагать вправо каждые 3000 миллисекунд (3 секунды)
+		autoPlayTimer = setInterval(() => {
+			moveMultiSlide(1);
+		}, 3000); 
+	}
 
-function resetAutoPlay() {
-    clearInterval(autoPlayTimer); // Останавливаем старый таймер
-    startAutoPlay();             // Запускаем заново, чтобы дать пользователю 3 секунды фокуса
-}
+	function resetAutoPlay() {
+		clearInterval(autoPlayTimer); // Останавливаем старый таймер
+		startAutoPlay();             // Запускаем заново, чтобы дать пользователю 3 секунды фокуса
+	}
 
-// Запускаем автопрокрутку сразу после загрузки страницы
-startAutoPlay();
-</script>
+	// Запускаем автопрокрутку сразу после загрузки страницы
+	startAutoPlay();
+	</script>
 	
 </body>
 </html>

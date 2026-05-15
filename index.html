@@ -2,6 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
+	<link href="googleapis.com" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крючком и спицами</title>
 	<link rel="icon" href="favicon.png" type="image/png">
@@ -9,16 +10,22 @@
         body { margin: 0; 
 			display: flex; 
 			height: 100vh; 
-			font-family: 'Montserrat', sans-serif; 
+			font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif; 
 			overflow: hidden; 
-			background: url(img/fon_body.jpg) repeat;
-			}
+			background-image: url('img/fon_body.jpg');
+			/* 100% — строго по ширине страницы, auto — высота подстроится пропорционально */
+			background-size: cover; 
+			background-position: top center;
+			background-attachment: fixed; /* Ткань застынет, а текст будет скользить поверх неё */
+			background-repeat: no-repeat;
+		}
 		        
         /* Левое узкое меню */
         nav { 
             width: 200px;
 			height: 100vh;			
             background: url(img/down_bg.jpg) repeat;
+			font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
             color: white; 
             display: flex; 
             flex-direction: column; 
@@ -41,7 +48,7 @@
 		}
 		
         nav a { 
-            color: #000080;
+            color: #1B365D;
             text-decoration: none; 
             margin: 10px 0; 
             font-weight: bold;
@@ -81,15 +88,14 @@
 		}		
 
 		.nav-blur-box.active {
-			background: rgba(200, 125, 50, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
-			border-left: 4px solid #ffffff;              /* Белая акцентная полоса слева */
+			background: rgba(200, 240, 200, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
+			border-left: 4px solid #0B2E13;              /* зеленая акцентная полоса слева */
 			box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
 		}
 
 		/* Меняем цвет ссылки внутри активной плашки */
 		.nav-blur-box.active a {
-			color: #ffffff !important; 
-			text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+			color: #094F2B !important; 
 		}
 
         iframe { 
@@ -98,33 +104,6 @@
             width: 100%; 
         }
 
-        /* Бегущая строка внизу с размытым фоном*/
-        .ticker-wrap { 
-            /* Бледно-голубой полупрозрачный фон */
-			background: rgba(173, 216, 230, 0.2); 
-    
-			/* Эффект размытия заднего фона */
-			backdrop-filter: blur(10px);
-			-webkit-backdrop-filter: blur(10px); /* Для поддержки в Safari */
-    
-			/* Тонкая рамка сверху для отделения от контента */
-			border-top: 1px solid rgba(255, 255, 255, 0.3);
-           color: #2c3e50; 
-			padding: 10px; 
-			overflow: hidden; 
-            white-space: nowrap;
-			color: #2c3e50; /* Голубой внутри */
-			font-weight: bold;		
-        }
-
-        .ticker { display: inline-block; animation: scroll 15s linear infinite; }
-        .ticker:hover { animation-play-state: paused; cursor: pointer; }
-
-        @keyframes scroll {
-            0% { transform: translateX(100vw); }
-            100% { transform: translateX(-100%); }
-        }
-		
 		#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
 			background: url(img/line.png) repeat-x;
 			height: 10px;
@@ -143,24 +122,23 @@
 			justify-content: space-around; /* Распределяем контакты по всей ширине */
 			flex-wrap: wrap;               /* Чтобы на телефонах блоки вставали друг под друга */
 			padding: 20px;
-			background: rgba(255, 255, 255, 0.1); 
+			background: rgba(255, 255, 255, 0.4); 
 			backdrop-filter: blur(5px);
 			border-top: 1px solid rgba(255, 255, 255, 0.2);
-			font-family: 'Montserrat', sans-serif;
+			font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif;
+			font-weight: bold;
 		}
 
 		.contact-item {
-			margin: 10px;
 			text-align: center;
-			color: #2c3e50; /* Ваш темно-серый/синий цвет текста */
 		}
 
 		.contact-item span {
 			display: block;
-			font-size: 12px;
+			font-size: 14px;
 			text-transform: uppercase;
 			letter-spacing: 1px;
-			color: #000080; /* Темно-синий акцент */
+			color: #1B365D; /* Темно-синий акцент */
 			margin-bottom: 5px;
 		}
 
@@ -172,7 +150,7 @@
 		}
 
 		.contact-item a:hover {
-			color: #4CAF50; /* Зеленый при наведении (как в бегущей строке) */
+			color: #0B2E13; /* Зеленый при наведении*/
 			border-bottom-color: #4CAF50;
 		}
 		
@@ -184,10 +162,10 @@
 		<img src="img/faktura.jpg" class="centered-img" width="130" height="130" />
 		<!-- Передаем в функцию ID плашки, которую нужно подсветить -->
 		<div class="nav-blur-box active" id="menu-main"> <!-- Задаем active первой по умолчанию -->
-			<a href="main_str.html" target="content-frame" onclick="highlightMenu('menu-main')">Главная страница</a>
+			<a href="main_str.html" target="content-frame" onclick="highlightMenu('menu-main')">Главная страница. Обо мне</a>
 		</div>
 		<div class="nav-blur-box" id="menu-gallery">
-			<a href="gallery.html" target="content-frame" onclick="highlightMenu('menu-gallery')">Галерея и прайс</a>
+			<a href="gallery.html" target="content-frame" onclick="highlightMenu('menu-gallery')">Галерея работ и ценник</a>
 		</div>
 		<div class="nav-blur-box" id="menu-services">
 			<a href="services.html" target="content-frame" onclick="highlightMenu('menu-services')">Услуги и рекомендации</a>
@@ -201,25 +179,16 @@
     <div class="main-wrapper">
         <!-- Сюда грузятся страницы -->
         <iframe name="content-frame" src="main_str.html"></iframe>
-		<!-- бегущая строка с контактами -->
-		<!-- <div class="ticker-wrap">
-            <div class="ticker">
-                СВЯЗАТЬСЯ СО МНОЙ: <a href="tel:+79286144211"> +7 (928) 614-42-11 </a> ЗВОНИТЕ И ПИШИТЕ
-            </div>
-        </div> -->
-		<div id="hr-line"></div>
-
+		<!-- низ страницы с контактами -->
 		<div class="footer-contacts">
 			<div class="contact-item">
 				<span>📍 Мастерская:</span>
-				<p>г. Ростов-на-Дону</p>
+				<p style="color: #1B365D;">г. Ростов-на-Дону</p>
 			</div>
-    
 			<div class="contact-item">
 				<span>📞 Телефон / WhatsApp:</span>
 				<p><a href="tel:+79286144211">+7 (928) 614-42-11</a></p>
 			</div>
-    
 			<div class="contact-item">
 				<span>✉️ Соцсети и мессенджеры:</span>
 				<div class="social-links">

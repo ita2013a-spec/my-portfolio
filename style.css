@@ -1,24 +1,26 @@
-/* Подключаем шрифты: Lora для заголовков (элегантный), Montserrat для текста (современный) */
-@import url('https://googleapis.com');
-
 body {
 	padding: 40px; 
-	font-family: 'Montserrat', sans-serif; 
-	color: #000080; 
+	font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif;
+	color: #1B365D; 
+	background-image: url('img/fon_body.jpg');
+	/* 100% — строго по ширине страницы, auto — высота подстроится пропорционально */
+    background-size: cover; 
+    background-position: top center;
+	background-attachment: fixed; /* Ткань застынет, а текст будет скользить поверх неё */
+	background-repeat: no-repeat;
 }
 h1 { 
-    color: #87CEEB; /* Голубой внутри */
-    -webkit-text-stroke: 2px #000080; /* Темно-синяя рамка */
-    font-weight: bold;
+    font-size: 250%;
+	color: #1B365D;
+    -webkit-text-stroke: 1px #2B4C7E;
 }
 
 h2 { 
-    font-weight: bold;
+    font-size: 150%;
 }
 
-
-
 p {
+	font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
 	text-align: justify;
 	font-size: 120%;
 }
@@ -40,21 +42,31 @@ td {
     word-wrap: break-word; /* Чтобы длинный текст не распирал колонку */
 }
 
+/* Новые стили для ячейки таблицы */
+.table-img-cell {
+    width: 15% !important;       /* Принудительно задаем 15% ширины */
+    text-align: center !important; /* Выравниваем ВСЁ содержимое строго по центру */
+    vertical-align: middle;      /* Центрируем по вертикали */
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Обновленные стили для самой картинки */
 .centered-img {
-	display: block;    /* Превращаем в блок */
-	width: auto;
-	height: 130px;
-	border-radius: 20px;
-	border: 5px solid rgba(255, 255, 255, 0.3); /* Стеклянный бортик */
-	margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
-	object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
-}		
+    display: inline-block !important; /* Картинка должна быть строчной, чтобы слушаться text-align: center */
+    width: auto;          /* Жесткая ширина */
+	height: auto;
+    max-height: 130px;         /* Жесткая высота */
+    border-radius: 20px;
+    border: 5px solid rgba(255, 255, 255, 0.3); /* Ваш стеклянный бортик */
+    object-fit: cover;                /* Защита от искажения пропорций авоськи */
+    margin: 0 auto;
+}
 
 .pattern-title {
     font-size: 20px;
     font-weight: 900;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif; /* На жирном шрифте лучше виден рисунок */
 
     /* Устанавливаем фоновый рисунок */
     background-image: url('img/top_bg.jpg'); 
@@ -68,7 +80,7 @@ td {
     color: transparent;
 
     /* Добавляем темно-синюю рамку */
-    -webkit-text-stroke: 1px #000080;
+    -webkit-text-stroke: 1px #1B365D;
     
     /* Чтобы текст не сливался с фоном сайта */
     display: inline-block;
@@ -77,18 +89,15 @@ td {
 .blur-box {
     display: inline-block;
     padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.2); /* Полупрозрачный белый фон */
-    
-    /* Сама магия размытия */
+    background: rgba(250, 255, 250, 0.4); /* Полупрозрачный белый фон */
+	/* Сама магия размытия */
     backdrop-filter: blur(8px); 
     -webkit-backdrop-filter: blur(8px); /* Для поддержки в Safari */
-    
-    border-radius: 5px;
+    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.3); /* Тонкая рамка для четкости */
 }
 
 /* Ф О Т О Г А Л Е Р Е Я */
-
 
 .carousel {
     position: relative;
@@ -106,7 +115,6 @@ td {
     height: 100%;
     display: flex;
 }
-
 
 .carousel-inner img {
     height: 100%;            /* Картинка строго занимает 300px по высоте */
@@ -130,7 +138,6 @@ td {
     opacity: 1;
 }
 
-
 /* Кнопки-стрелки */
 .prev, .next {
     position: absolute;
@@ -138,7 +145,7 @@ td {
     transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(10px);
-    color: #000080; /* Ваш темно-синий */
+    color: #1B365D; /* Ваш темно-синий */
     border: none;
     padding: 10px;
     cursor: pointer;
@@ -178,7 +185,7 @@ td {
 }
 
 .dot.active {
-    background: #000080; /* Темно-синий для активной точки */
+    background: #1B365D; /* Темно-синий для активной точки */
     transform: scale(1.2);
 }
 
@@ -231,7 +238,6 @@ td {
 
 .price-list {
     margin-top: 15px;
-    font-family: 'Montserrat', sans-serif;
 }
 
 .price-item {
@@ -239,11 +245,11 @@ td {
     align-items: flex-end;
     margin-bottom: 12px;
     color: #2c3e50;
+	flex-wrap: wrap; /* Разрешаем перенос элементов на новую строку */
 }
 
 .price-name {
     font-weight: 500;
-    white-space: nowrap; /* Чтобы название не переносилось раньше времени */
 }
 
 /* Создаем автоматические точки между названием и ценой */
@@ -257,8 +263,25 @@ td {
 
 .price-value {
     font-weight: bold;
-    color: #000080; /* Ваш фирменный темно-синий */
+    color: #1B365D; /* Ваш фирменный темно-синий */
     white-space: nowrap;
+}
+
+/* 📱 Магия для мобильных экранов (меньше 480px) */
+@media (max-width: 480px) {
+    .price-dots {
+        display: none; /* Скрываем точки, так как строка разрывается */
+    }
+    
+    .price-name {
+        flex: 0 0 100%; /* Название занимает всю первую строчку */
+        margin-bottom: 5px;
+    }
+    
+    .price-value {
+        flex: 0 0 100%; /* Цена занимает всю вторую строчку */
+        text-align: right; /* Форматирование строго по правому краю */
+    }
 }
 
 .gallery-grid {
@@ -291,7 +314,6 @@ td {
     grid-column: span 2;
     grid-row: span 2;
 }
-
 
 /* Контейнер карусели (ограничивает ширину по центру сайта) */
 .multi-carousel {
@@ -347,7 +369,7 @@ td {
     background: rgba(255, 255, 255, 0.2);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.4);
-    color: #000080; /* Ваш темно-синий цвет */
+    color: #1B365D; /* Ваш темно-синий цвет */
     padding: 12px 15px;
     font-size: 20px;
     cursor: pointer;
@@ -375,11 +397,10 @@ td {
     font-size: 36px;
     font-weight: bold;
     color: #87CEEB; /* Небесно-голубой */
-    -webkit-text-stroke: 1.5px #000080; /* Темно-синий контур */
+    -webkit-text-stroke: 1.5px #1B365D; /* Темно-синий контур */
     text-align: center;
     margin-top: 40px;
     margin-bottom: 40px;
-    font-family: 'Lora', serif;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -397,7 +418,7 @@ td {
 
 /* Сама «стеклянная» карточка */
 .service-card {
-    background: rgba(255, 255, 255, 0.15); /* Полупрозрачный белый */
+    background: rgba(250, 255, 250, 0.4); /* Полупрозрачный белый */
     backdrop-filter: blur(10px);           /* Эффект матового стекла */
     -webkit-backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.3); /* Светящийся бортик */
@@ -416,7 +437,7 @@ td {
 /* Эффект при наведении на карточку */
 .service-card:hover {
     transform: translateY(-8px); /* Карточка изящно приподнимается */
-    background: rgba(255, 255, 255, 0.25); /* Становится чуть светлее */
+    background: rgba(255, 255, 255, 0.6); /* Становится чуть светлее */
     box-shadow: 0 15px 35px rgba(26, 75, 132, 0.15); /* Мягкая синеватая тень */
 }
 
@@ -427,13 +448,12 @@ td {
 
 .service-card h3 {
     font-family: 'Lora', serif;
-    color: #000080; /* Темно-синий */
+    color: #1B365D; /* Темно-синий */
     margin: 0 0 15px 0;
     font-size: 22px;
 }
 
 .service-card p {
-    font-family: 'Montserrat', sans-serif;
     color: #2c3e50; /* Благородный темно-серый */
     font-size: 14px;
     line-height: 1.6;
@@ -457,7 +477,6 @@ td {
     text-decoration: none;
     padding: 10px 25px;
     border-radius: 20px;
-    font-family: 'Montserrat', sans-serif;
     font-size: 14px;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
@@ -469,3 +488,92 @@ td {
     transform: scale(1.05);
 }
 
+/* контейнер на главной странице и контейнеры вместо таблицы в галерее */
+		/* Главный контейнер страницы О мастере */
+		.about-wrapper {
+			display: flex;
+			gap: 40px;
+			max-width: 1100px;
+			margin: 40px auto;
+			padding: 20px;
+			align-items: top; /* Центрируем фото и текст по вертикали */
+		}
+
+		/* Зона фотографии */
+		.about-photo-zone {
+			flex: 1;
+			min-width: 300px;
+		}
+
+		.about-me-img {
+			width: 100%;
+			height: 450px;       /* Красивая журнальная высота для фото */
+			object-fit: cover;   /* Фото не сожмется и не деформируется */
+			border-radius: 20px;
+			border: 2px solid rgba(255, 255, 255, 0.4);
+			box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+		}
+
+		/* Зона стеклянной текстовой плашки */
+		.about-text-zone {
+			flex: 1.2;
+			background: rgba(250, 255, 250, 0.4); /* Матовое стекло */
+			backdrop-filter: blur(10px);
+			-webkit-backdrop-filter: blur(10px);
+			border: 1px solid rgba(255, 255, 255, 0.3);
+			border-radius: 20px;
+			padding: 40px;
+			box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+			color: #2c3e50;
+		}
+
+		/* Заголовок в вашем фирменном сине-голубом стиле */
+		.about-title {
+			font-size: 36px;
+			color: #87CEEB; /* Ваш голубой */
+			-webkit-text-stroke: 1.5px #000080; /* Темно-синяя рамка */
+			margin-top: 0;
+			margin-bottom: 20px;
+			text-transform: uppercase;
+			letter-spacing: 2px;
+		}
+
+		.about-text-zone p {
+			font-size: 17px;
+			line-height: 1.7;
+			margin-bottom: 15px;
+		}
+
+		/* Стильный список материалов */
+		.about-materials {
+			list-style: none;
+			padding: 0;
+			margin: 20px 0;
+		}
+
+		.about-materials li {
+			font-size: 15px;
+			margin-bottom: 12px;
+			display: flex;
+			align-items: flex-start;
+			line-height: 1.6;
+		}
+
+		.about-materials li span {
+			margin-right: 15px;
+			font-size: 20px;
+		}
+
+		/* Адаптивность для мобильных устройств */
+		@media (max-width: 768px) {
+			.about-wrapper {
+				flex-direction: column; /* Картинка встанет НАД текстом */
+				gap: 20px;
+			}
+			.about-me-img {
+				height: 300px; /* Уменьшаем высоту фото на смартфонах */
+			}
+			.about-text-zone {
+				padding: 25px;
+			}
+		}
