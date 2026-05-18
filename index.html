@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Крючком и спицами. Вязаный декор ручной работы</title>
 	<!-- Краткое описание сайта, которое люди увидят в результатах поиска Яндекса -->
-    <meta name="description" content="Крючком и спицами. Уютный вязаный декор для дома из натурального хлопка и джута. Кашпо, авоськи, корзинки и одежда ручной работы на заказ с доставкой.">
+    <meta name="description" content="Крючком и спицами. Уютный вязаный декор для дома из натурального хлопка и джута. Кашпо, авоськи, корзинки и одежда ручной работы на заказ.">
     <!-- Те самые ТЕГИ (ключевые слова), по которым вас должны находить -->
     <meta name="keywords" content="крючком и спицами, вязаный декор, кашпо из джута, авоська ручной работы, интерьерные корзины, вязание на заказ, декор хюгге">
 	<link rel="icon" href="favicon.png" type="image/png">
@@ -177,6 +177,9 @@
 		<div class="nav-blur-box" id="menu-contacts">
 			<a href="contacts.html" target="content-frame" onclick="highlightMenu('menu-contacts')">Контакты</a>
 		</div>		
+		<div class="nav-blur-box" id="menu-contacts">
+			<a href="stories.html" target="content-frame" onclick="highlightMenu('menu-stories')">Вязальные байки</a>
+		</div>
     </nav>
 
     <div class="main-wrapper">
@@ -236,7 +239,10 @@ if (iframe) {
                     highlightMenu('menu-services');
                 } else if (pageName === 'contacts.html') {
                     highlightMenu('menu-contacts');
+                } else if (pageName === 'stories.html') {
+                    highlightMenu('menu-stories');
                 }
+				
             }
         } catch (e) {
             // Если Яндекс.Браузер блокирует чтение pathname, этот блок перехватит ошибку,
