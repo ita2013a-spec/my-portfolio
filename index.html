@@ -23,7 +23,6 @@
 			background-attachment: fixed; /* Ткань застынет, а текст будет скользить поверх неё */
 			background-repeat: no-repeat;
 		}
-		        
         /* Левое узкое меню */
         nav { 
             width: 200px;
@@ -37,7 +36,6 @@
             box-sizing: border-box;
 			position: relative; /* Обязательно для позиционирования линии */
         }
-
 		/* Создаем вертикальную линию из рисунка */
 		nav:after {
 			content: "";
@@ -50,14 +48,12 @@
 			background-repeat: repeat-y; /* Повтор строго сверху вниз */
 			background-size: contain;    /* Чтобы рисунок вписался в 15px по ширине */
 		}
-		
         nav a { 
             color: #1B365D;
             text-decoration: none; 
             margin: 10px 0; 
             font-weight: bold;
         }
-
         nav a:hover { color: white; }
 			/* Основная область */
 			.main-wrapper { 
@@ -65,7 +61,6 @@
             display: flex; 
             flex-direction: column; 
         }
-		
 		/* Специальный класс для ссылок или заголовков в меню */
 		.nav-blur-box {
 			display: block;            /* Растягиваем на всю ширину меню */
@@ -86,33 +81,27 @@
 			/* Мягкое свечение вместо черной тени */
 			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 		}
-
 		.nav-blur-box:hover {
 			background: rgba(0, 0, 0, 0.4); /* Затемнение при наведении */
 		}		
-
 		.nav-blur-box.active {
 			background: rgba(200, 240, 200, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
 			border-left: 4px solid #0B2E13;              /* зеленая акцентная полоса слева */
 			box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
 		}
-
 		/* Меняем цвет ссылки внутри активной плашки */
 		.nav-blur-box.active a {
 			color: #094F2B !important; 
 		}
-
         iframe { 
             flex: 1; 
             border: none; 
             width: 100%; 
         }
-
 		#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
 			background: url(img/line.png) repeat-x;
 			height: 10px;
 		}
-		
 		.centered-img {
 			display: block;    /* Превращаем в блок */
 			border-radius: 20px;
@@ -120,7 +109,6 @@
 			margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
 			object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
 		}
-		
 		.footer-contacts {
 			display: flex;
 			justify-content: space-around; /* Распределяем контакты по всей ширине */
@@ -132,11 +120,9 @@
 			font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif;
 			font-weight: bold;
 		}
-
 		.contact-item {
 			text-align: center;
 		}
-
 		.contact-item span {
 			display: block;
 			font-size: 14px;
@@ -145,19 +131,16 @@
 			color: #1B365D; /* Темно-синий акцент */
 			margin-bottom: 5px;
 		}
-
 		.contact-item a {
 			color: #1a4b84;
 			text-decoration: none;
 			border-bottom: 1px dashed #1a4b84; /* Пунктирное подчеркивание выглядит стильно */
 			transition: 0.3s;
 		}
-
 		.contact-item a:hover {
 			color: #0B2E13; /* Зеленый при наведении*/
 			border-bottom-color: #4CAF50;
 		}
-		
     </style>
 </head>
 
@@ -177,7 +160,7 @@
 		<div class="nav-blur-box" id="menu-contacts">
 			<a href="contacts.html" target="content-frame" onclick="highlightMenu('menu-contacts')">Контакты</a>
 		</div>		
-		<div class="nav-blur-box" id="menu-contacts">
+		<div class="nav-blur-box" id="menu-stories">
 			<a href="stories.html" target="content-frame" onclick="highlightMenu('menu-stories')">Вязальные байки</a>
 		</div>
     </nav>
