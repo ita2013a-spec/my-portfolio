@@ -23,6 +23,7 @@
 			background-attachment: fixed; /* Ткань застынет, а текст будет скользить поверх неё */
 			background-repeat: no-repeat;
 		}
+		
         /* Левое узкое меню */
         nav { 
             width: 200px;
@@ -36,6 +37,7 @@
             box-sizing: border-box;
 			position: relative; /* Обязательно для позиционирования линии */
         }
+		
 		/* Создаем вертикальную линию из рисунка */
 		nav:after {
 			content: "";
@@ -48,12 +50,14 @@
 			background-repeat: repeat-y; /* Повтор строго сверху вниз */
 			background-size: contain;    /* Чтобы рисунок вписался в 15px по ширине */
 		}
+		
         nav a { 
             color: #1B365D;
             text-decoration: none; 
             margin: 10px 0; 
             font-weight: bold;
         }
+		
         nav a:hover { color: white; }
 			/* Основная область */
 			.main-wrapper { 
@@ -61,6 +65,7 @@
             display: flex; 
             flex-direction: column; 
         }
+		
 		/* Специальный класс для ссылок или заголовков в меню */
 		.nav-blur-box {
 			display: block;            /* Растягиваем на всю ширину меню */
@@ -81,27 +86,33 @@
 			/* Мягкое свечение вместо черной тени */
 			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 		}
+		
 		.nav-blur-box:hover {
 			background: rgba(0, 0, 0, 0.4); /* Затемнение при наведении */
-		}		
+		}
+		
 		.nav-blur-box.active {
 			background: rgba(200, 240, 200, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
 			border-left: 4px solid #0B2E13;              /* зеленая акцентная полоса слева */
 			box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
 		}
+		
 		/* Меняем цвет ссылки внутри активной плашки */
 		.nav-blur-box.active a {
 			color: #094F2B !important; 
 		}
+		
         iframe { 
             flex: 1; 
             border: none; 
             width: 100%; 
         }
+		
 		#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
 			background: url(img/line.png) repeat-x;
 			height: 10px;
 		}
+		
 		.centered-img {
 			display: block;    /* Превращаем в блок */
 			border-radius: 20px;
@@ -109,6 +120,7 @@
 			margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
 			object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
 		}
+		
 		.footer-contacts {
 			display: flex;
 			justify-content: space-around; /* Распределяем контакты по всей ширине */
@@ -120,9 +132,11 @@
 			font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif;
 			font-weight: bold;
 		}
+		
 		.contact-item {
 			text-align: center;
 		}
+		
 		.contact-item span {
 			display: block;
 			font-size: 14px;
@@ -131,21 +145,92 @@
 			color: #1B365D; /* Темно-синий акцент */
 			margin-bottom: 5px;
 		}
+		
 		.contact-item a {
 			color: #1a4b84;
 			text-decoration: none;
 			border-bottom: 1px dashed #1a4b84; /* Пунктирное подчеркивание выглядит стильно */
 			transition: 0.3s;
 		}
+		
 		.contact-item a:hover {
 			color: #0B2E13; /* Зеленый при наведении*/
 			border-bottom-color: #4CAF50;
 		}
+		
+		/* --- СТИЛИ ДЛЯ КНОПОК УПРАВЛЕНИЯ (По умолчанию скрыты на компьютерах) --- */
+		.mobile-menu-toggle, .mobile-menu-close {
+			display: none; 
+		}
+
+		/* --- 📱 МАГИЯ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Меньше 768px) --- */
+		@media (max-width: 768px) {
+    
+			/* Кнопка открытия меню в левом верхнем углу сайта */
+			.mobile-menu-toggle {
+				display: block; /* Показываем только на телефонах */
+				position: fixed;
+				top: 15px;
+				left: 15px;
+				z-index: 1500; /* Кнопка всегда поверх всего */
+				background: rgba(26, 75, 132, 0.85); /* Ваш синий цвет с прозрачностью */
+				backdrop-filter: blur(5px);
+				color: white;
+				border: 1px solid rgba(255, 255, 255, 0.2);
+				padding: 10px 15px;
+				border-radius: 20px;
+				font-weight: bold;
+				font-size: 14px;
+				cursor: pointer;
+				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+			}
+
+			/* Меню превращается в выезжающую шторку */
+			nav {
+				position: fixed !important;
+				top: 0;
+				left: -220px; /* Полностью прячем меню за левую границу экрана (200px ширина + 20px запас) */
+				width: 200px;
+				height: 100vh;
+				z-index: 2000; /* Меню выезжает поверх центрального контента */
+				transition: left 0.4s ease-in-out; /* Эффект плавного скольжения */
+				box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+			}
+
+			/* Класс, который JavaScript будет добавлять при клике для открытия */
+			nav.open {
+				left: 0; /* Меню плавно выезжает на экран */
+			}
+
+			/* Кнопка-крестик внутри выехавшего меню */
+			.mobile-menu-close {
+				display: block;
+				align-self: flex-end; /* Сдвигаем в правый верхний угол меню */
+				background: none;
+				border: none;
+				color: white;
+				font-size: 35px;
+				cursor: pointer;
+				line-height: 1;
+				margin-bottom: 10px;
+			}
+
+			/* Центральный контент теперь занимает 100% ширины телефона! */
+			.main-wrapper {
+				width: 100% !important;
+				padding-top: 60px; /* Делаем отступ сверху, чтобы кнопка «☰ Меню» не перекрывала контент */
+			}
+		}
+		
     </style>
 </head>
 
 <body>
-    <nav>
+	<!-- Кнопка «Бургер» для открытия меню на смартфонах -->
+	<button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰ Меню</button>
+    <nav  id="sidebar-menu">
+		<!-- Кнопка-крестик для закрытия меню на смартфонах -->
+		<button class="mobile-menu-close" onclick="toggleMobileMenu()">&times;</button>
 		<img src="img/faktura.jpg" class="centered-img" width="130" height="130" />
 		<!-- Передаем в функцию ID плашки, которую нужно подсветить -->
 		<div class="nav-blur-box active" id="menu-main"> <!-- Задаем active первой по умолчанию -->
@@ -233,6 +318,21 @@ if (iframe) {
         }
     }, 300);
 }
+
+function toggleMobileMenu() {
+    const menu = document.getElementById('sidebar-menu');
+    // Метод toggle автоматически добавляет класс "open", если его нет, и удаляет, если он есть
+    menu.classList.toggle('open');
+}
+
+/* Фикс: когда пользователь выбирает пункт в меню, шторка должна автоматически закрыться */
+document.querySelectorAll('nav a').forEach(link => {
+    link.addEventListener('click', () => {
+        const menu = document.getElementById('sidebar-menu');
+        menu.classList.remove('open');
+    });
+});
+
 </script>
 
 </body>
