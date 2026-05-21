@@ -11,6 +11,8 @@
     <meta name="keywords" content="крючком и спицами, вязаный декор, кашпо из джута, авоська ручной работы, интерьерные корзины, вязание на заказ, декор хюгге">
 	<link rel="icon" href="favicon.png" type="image/png">
 	<style>
+	
+/* --- СТИЛИ ПО УМОЛЧАНИЮ (Для больших экранов компьютеров) --- */
         body { margin: 0; 
 			display: flex; 
 			height: 100vh; 
@@ -124,8 +126,8 @@
 		.footer-contacts {
 			display: flex;
 			justify-content: space-around; /* Распределяем контакты по всей ширине */
-			flex-wrap: wrap;               /* Чтобы на телефонах блоки вставали друг под друга */
-			padding: 20px;
+			align-items: center;
+			padding: 15px 15px;
 			background: rgba(255, 255, 255, 0.4); 
 			backdrop-filter: blur(5px);
 			border-top: 1px solid rgba(255, 255, 255, 0.2);
@@ -162,8 +164,41 @@
 		.mobile-menu-toggle, .mobile-menu-close {
 			display: none; 
 		}
+		
+		/* --- СТИЛИ ПО УМОЛЧАНИЮ (Для больших экранов компьютеров) --- */
+		.contacts-header {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 0;
+			padding: 0;
+		}
 
-		/* --- 📱 МАГИЯ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Меньше 768px) --- */
+		.mobile-tap-text, .footer-arrow {
+			display: none !important; /* Скрываем мобильные подсказки и стрелочку на ПК */
+		}
+
+		.main-phone-p {
+			margin: 5px 0 0 0; /* Минимальный отступ между надписью и номером */
+			padding: 0;
+		}
+
+		.main-phone-p a {
+			color: #000080;
+			text-decoration: none;
+			font-weight: bold;
+		}
+
+		/* Контент с соцсетями и адресом на ПК виден ВСЕГДА и стоит в общем ряду */
+		.contacts-hidden-content {
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+			gap: 10px; /* Расстояние между адресом и соцсетями на ПК */
+		}
+
+
+/* --- 📱 МАГИЯ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Меньше 768px) --- */
 		@media (max-width: 768px) {
     
 			/* Кнопка открытия меню в левом верхнем углу сайта */
@@ -220,6 +255,81 @@
 				width: 100% !important;
 				padding-top: 60px; /* Делаем отступ сверху, чтобы кнопка «☰ Меню» не перекрывала контент */
 			}
+		    
+			.footer-contacts {
+				position: fixed !important;
+				bottom: 0;
+				left: 0;
+				width: 100%;
+				z-index: 1400;
+				flex-direction: column; /* На телефонах элементы встают друг под друга */
+				justify-content: flex-start;
+				background: rgba(255, 255, 255, 0.2) !important;
+				backdrop-filter: blur(12px) !important;
+				-webkit-backdrop-filter: blur(12px) !important;
+				border-top: 1px solid rgba(255, 255, 255, 0.4);
+				/* Жестко запираем высоту закрытой шторки */
+				height: 45px !important; 
+				max-height: 45px !important; 
+				padding: 0 15px !important; 
+				box-sizing: border-box;
+				overflow: hidden;
+				transition: max-height 0.4s ease-in-out, height 0.4s ease-in-out, background 0.3s;
+			}
+
+			/* Класс расширения, который будет добавлять JavaScript при клике */
+			.footer-contacts.expanded {
+				height: auto !important;
+				max-height: 300px !important; 
+				background: rgba(255, 255, 255, 0.35) !important;
+				padding-bottom: 20px !important;
+			}
+
+			/* Оформляем верхнюю строчку на телефонах в один ряд */
+			.contacts-header {
+				flex-direction: row !important;
+				justify-content: space-between !important;
+				width: 100%;
+				height: 45px !important; 
+			}
+
+			.mobile-tap-text {
+				display: inline !important;
+				font-size: 11px !important;
+				color: #1b4d22; 
+				font-weight: bold;
+				text-transform: uppercase;
+			}
+
+			.main-phone-p {
+				margin: 0 !important;
+				line-height: 1 !important;
+			}
+	
+			.main-phone-p a {
+				font-size: 13px !important;
+			}
+
+			/* Показываем стрелочку-уголок */
+			.footer-arrow {
+				display: inline-block !important;
+				color: #000080;
+				font-size: 10px;
+				transition: transform 0.4s;
+			}
+
+			/* При раскрытии шторки стрелочка переворачивается вниз */
+			.footer-contacts.expanded .footer-arrow {
+				transform: rotate(180deg);
+			}
+
+			/* Скрываемая часть с соцсетями и адресом */
+			.contacts-hidden-content {
+				margin-top: 15px;
+				flex-direction: column;
+				gap: 12px;
+				width: 100%;
+			}
 		}
 		
     </style>
@@ -254,24 +364,38 @@
         <!-- Сюда грузятся страницы -->
         <iframe name="content-frame" src="main_str.html"></iframe>
 		<!-- низ страницы с контактами -->
-		<div class="footer-contacts">
-			<div class="contact-item">
-				<span>📍 Мастерская:</span>
-				<p style="color: #1B365D;">г. Ростов-на-Дону</p>
+		<div class="footer-contacts" id="footer-contacts">
+		
+			<!-- 📞 Эта строчка на телефонах будет аккуратной кнопкой, а на ПК — обычным заголовком -->
+			<div class="contacts-header" onclick="toggleFooterContacts()">
+				<span class="mobile-tap-text">📞 Связаться со мной:</span>
+				<p class="main-phone-p">
+					<a href="tel:+79286144211" onclick="event.stopPropagation();">+7 (928) 614-42-11</a>
+				</p>
+				<span class="footer-arrow">▲</span>
 			</div>
-			<div class="contact-item">
-				<span>📞 Телефон / WhatsApp:</span>
-				<p><a href="tel:+79286144211">+7 (928) 614-42-11</a></p>
-			</div>
-			<div class="contact-item">
-				<span>✉️ Соцсети и мессенджеры:</span>
-				<div class="social-links">
-					<a href="https://t.me" target="_blank">Telegram</a>
-					<a href="https://wa.me" target="_blank">WhatsApp</a>
+        
+			<!-- 📦 Блок с адресом и соцсетями, который прячется на смартфонах -->
+			<div class="contacts-hidden-content">
+				<div class="contact-item">
+					<span>📍 Мастерская:</span>
+					<p style="color: #1B365D;">г. Ростов-на-Дону</p>
 				</div>
+				<div class="contact-item">
+					<span>📞 Телефон / WhatsApp:</span>
+					<p><a href="tel:+79286144211">+7 (928) 614-42-11</a></p>
+				</div>
+				<div class="contact-item">
+					<span>✉️ Соцсети и мессенджеры:</span>
+					<div class="social-links">
+						<a href="https://t.me" target="_blank">Telegram</a>
+						<a href="https://wa.me" target="_blank">WhatsApp</a>
+					</div>
+				</div>
+		
 			</div>
 		</div>
-    </div>
+	</div>
 
 <script>
 function highlightMenu(activeId) {
@@ -333,6 +457,11 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
+function toggleFooterContacts() {
+    const footer = document.getElementById('footer-contacts');
+    // Тоггл плавно добавляет или убирает класс, который меняет высоту
+    footer.classList.toggle('expanded');
+}
 </script>
 
 </body>
