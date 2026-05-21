@@ -127,10 +127,11 @@
 			display: flex;
 			justify-content: space-around; /* Распределяем контакты по всей ширине */
 			align-items: center;
-			padding: 15px 15px;
+			padding: 15px 20px;
 			background: rgba(255, 255, 255, 0.4); 
 			backdrop-filter: blur(5px);
 			border-top: 1px solid rgba(255, 255, 255, 0.2);
+			margin-top: 0px;
 			font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif;
 			font-weight: bold;
 		}
@@ -167,14 +168,15 @@
 		
 		/* --- СТИЛИ ПО УМОЛЧАНИЮ (Для больших экранов компьютеров) --- */
 		.contacts-header {
-			display: none !important;
+			display: flex;
 			flex-direction: column;
 			align-items: center;
 			margin: 0;
 			padding: 0;
+			
 		}
 
-		.mobile-tap-text, .footer-arrow {
+		.footer-arrow {
 			display: none !important; /* Скрываем мобильные подсказки и стрелочку на ПК */
 		}
 
@@ -200,7 +202,8 @@
 
 /* --- 📱 МАГИЯ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Меньше 768px) --- */
 		@media (max-width: 768px) {
-    		/* Кнопка открытия меню в левом верхнем углу сайта */
+    
+			/* Кнопка открытия меню в левом верхнем углу сайта */
 			.mobile-menu-toggle {
 				display: block; /* Показываем только на телефонах */
 				position: fixed;
@@ -367,7 +370,7 @@
 		
 			<!-- 📞 Эта строчка на телефонах будет аккуратной кнопкой, а на ПК — обычным заголовком -->
 			<div class="contacts-header" onclick="toggleFooterContacts()">
-				<span class="mobile-tap-text">📞 Связаться со мной:</span>
+				<span class="mobile-tap-text">📞 Телефон для связи:</span>
 				<p class="main-phone-p">
 					<a href="tel:+79286144211" onclick="event.stopPropagation();">+7 (928) 614-42-11</a>
 				</p>
@@ -381,11 +384,7 @@
 					<p style="color: #1B365D;">г. Ростов-на-Дону</p>
 				</div>
 				<div class="contact-item">
-					<span>📞 Телефон / WhatsApp:</span>
-					<p><a href="tel:+79286144211">+7 (928) 614-42-11</a></p>
-				</div>
-				<div class="contact-item">
-					<span>✉️ Соцсети и мессенджеры:</span>
+					<span>✉️ Соцсети и мессенджеры<br>привязаны к номеру телефона:</span>
 					<div class="social-links">
 						<a href="https://t.me" target="_blank">Telegram</a>
 						<a href="https://wa.me" target="_blank">WhatsApp</a>
