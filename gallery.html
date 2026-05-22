@@ -1,32 +1,35 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
 	<link href="googleapis.com" rel="stylesheet">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Крючком и спицами: Галерея</title>
 	<!-- Краткое описание сайта, которое люди увидят в результатах поиска Яндекса -->
-    <meta name="description" content="Крючком и спицами. Уютный вязаный декор для дома из натурального хлопка и джута. Кашпо, авоськи, корзинки и одежда ручной работы на заказ с доставкой.">
+    <meta name="description" content="Крючком и спицами. Уютный вязаный декор для дома из натурального хлопка и джута. Кашпо, авоськи, корзинки и одежда ручной работы на заказ.">
     <!-- Те самые ТЕГИ (ключевые слова), по которым вас должны находить -->
     <meta name="keywords" content="крючком и спицами, вязаный декор, кашпо из джута, авоська ручной работы, интерьерные корзины, вязание на заказ, декор хюгге">
 	<link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-<!-- Блок фотогалереи кашпо+ -->
-	<div class="about-wrapper">
-        <!-- Левый блок: заголовок и текст -->
-		<div class="about-text-zone">
-			<h3 style="margin: 0;">КАШПО, ПОДВЕСНОЕ КАШПО</h3>
+	<!-- Главный верхний блок: картинка + меню -->
+	<div class="stories-header-wrapper" id="top">
+    	<!-- Стеклянное вертикальное меню -->
+		<div class="stories-nav-vertical">
+			<h3>КАШПО, ПОДВЕСНОЕ КАШПО</h3>
 			<p><strong>Уютный подоконник:</strong> кашпо разных размеров, подставки под горшки, подвесные держатели.</p>
 			<p>Вязаная оправа для ваших зеленых любимцев. Маленькая деталь, которая делает пространство мягче. Стильный и экологичный аксессуар для дома. Каждая петелька создана вручную, что гарантирует уникальность изделия. Прочное плетение отлично держит форму, скрывает недостатки пластиковых горшков и добавляет интерьеру природной эстетики.</p>
 		</div>
-		<div class="about-text-zone">
+		<!-- Картинка -->
+		<div class="stories-nav-vertical">
 			<!-- Правый блок: карусель фотогалереи -->
         	<div class="carousel" id="carousel-1">
 				<div class="carousel-inner">
-					<img src="gallery/kashpo-01.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо" class="active" onclick="openModal(this.src)">
-					<img src="gallery/kashpo-02.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо" onclick="openModal(this.src)">
-					<img src="gallery/kashpo-03.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Подвесное кашпо" onclick="openModal(this.src)">
+					<img src="gallery/kashpo-01.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Интерьерное кашпо ручной работы" class="active" onclick="openModal(this.src)">
+					<img src="gallery/kashpo-02.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Интерьерное кашпо ручной работы" onclick="openModal(this.src)">
+					<img src="gallery/kashpo-03.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Вязаное кашпо из джута" onclick="openModal(this.src)">
 				</div>
 				<!-- Кнопки управления -->
 				<button class="prev" onclick="moveSlide(-1, 'carousel-1')">&#10094;</button>
@@ -38,10 +41,9 @@
 					<span class="dot" onclick="currentSlide(2, 'carousel-1')"></span>
 				</div>
 			</div>
-			<br>
-			<div id="hr-line"></div>
-			<h3 style="text-align: center;">Стоимость работы</h3>
-			<div class="price-list">
+			
+			<div style="margin-top: 15px">
+				<h3 style="text-align: center;">Стоимость работы</h3>
 				<div class="price-item">
 					<span class="price-name">Вязаное кашпо </span>
 					<span class="price-dots"></span>
@@ -53,22 +55,21 @@
 					<span class="price-value">от 800₽</span>
 				</div>
 			</div>
-        </div>
-    </div>
-<!-- Блок фотогалереи корзинок+ -->
-	<div class="about-wrapper">
-        <!-- Левый блок: заголовок и текст -->
-		<div class="about-text-zone">
-			<h3 style="margin: 0;">КОРЗИНКИ, БУТЫЛОЧНИЦЫ</h3>
-			<p><strong>Дом для ваших мелочей:</strong> Порядок в деталях. Организация пространства: корзинки, коврики, подставки, салфетки, бутылочницы.</p>
-			<p><strong>Коврики:</strong> Мягкое утро для ваших ног</p>
 		</div>
-		<div class="about-text-zone">
+	</div>
+	<div id="hr-line"></div>
+	<div class="stories-header-wrapper">	
+		<div class="stories-nav-vertical">
+			<h3>КОРЗИНКИ, БУТЫЛОЧНИЦЫ</h3>
+			<p><strong>Дом для ваших мелочей:</strong> Порядок в деталях.</p>
+			<p>Организация пространства: корзинки, коврики, подставки, салфетки, бутылочницы. Идеальный способ спрятать визуальный шум и добавить дому природной теплоты. Эти фактурные корзины созданы для тех, кто ценит эстетику порядка. В ванной комнате они бережно сохранят косметику и чистые полотенца, в спальне или прихожей — станут стильным домом для украшений, ключей и полезных мелочей, а в детской — соберут мелкие игрушки. Джут не боится влаги и очень прочен, а хлопок дарит невероятную мягкость. Каждая корзинка отлично держит форму благодаря плотной авторской вязке. <br>Вязаная бутылочница - это стильный, необычный и очень практичный аксессуар для тех, кто находится в движении. Эта вязаная сумочка-чехол создана для удобного ношения термоса, бутылки с водой или любимого напитка на прогулках, пикниках и фестивалях. Плотное плетение защищает стеклянную или металлическую бутылку от случайных царапин и ударов, а удобная ручка позволяет освободить руки, накинув её на плечо. Отличная идея для оригинального и полезного подарка человеку, который заботится об экологии и любит долгие пешие прогулки.</p>
+		</div>
+		<div class="stories-nav-vertical">
 			<!-- Правый блок: карусель фотогалереи -->
-			<div class="carousel" id="carousel-2">
+        	<div class="carousel" id="carousel-2">
 				<div class="carousel-inner">
-					<img src="gallery/korzinka-01.jpg" style="width: 100%; height: auto; max-width: 300px;" alt="Корзинка" class="active" onclick="openModal(this.src)">
-					<img src="gallery/korzinka-02.jpg" style="width: 100%; height: auto; max-width: 300px;" alt="Корзинка" onclick="openModal(this.src)">
+					<img src="gallery/korzinka-01.jpg" style="width: 100%; height: auto; max-width: 300px;" alt="Интерьерная корзина" class="active" onclick="openModal(this.src)">
+					<img src="gallery/korzinka-02.jpg" style="width: 100%; height: auto; max-width: 300px;" alt="Вязаная бутылочница" onclick="openModal(this.src)">
 					<img src="gallery/korzinka-03.jpg" style="width: 100%; height: auto; max-width: 300px;" alt="Корзинка" onclick="openModal(this.src)">
 				</div>
 				<!-- Кнопки управления -->
@@ -81,10 +82,8 @@
 					<span class="dot" onclick="currentSlide(2, 'carousel-2')"></span>
 				</div>
 			</div>
-			<br>
-			<div id="hr-line"></div>
-			<h3 style="text-align: center;">Стоимость работы</h3>
-			<div class="price-list">
+			<div style="margin-top: 15px">
+				<h3 style="text-align: center;">Стоимость работы</h3>
 				<div class="price-item">
 					<span class="price-name">Корзинка</span>
 					<span class="price-dots"></span>
@@ -101,21 +100,20 @@
 					<span class="price-value">от 300₽</span>
 				</div>
 			</div>
-        </div>
-    </div>
-
-<!-- Блок фотогалереи авосек+ -->
-	<div class="about-wrapper">
-        <!-- Левый блок: заголовок и текст -->
-		<div class="about-text-zone">
-			<h3 style="margin: 0;">АВОСЬКИ, СУМОЧКИ</h3>
-			<p><strong>Эко-прогулка (Аксессуары вне дома):</strong> Стиль, который бережет планету</p>
 		</div>
-		<div class="about-text-zone">
+	</div>	
+	<div id="hr-line"></div>	
+	<div class="stories-header-wrapper">	
+		<div class="stories-nav-vertical">
+			<h3>АВОСЬКИ, СУМКИ</h3>
+			<p><strong>Эко-прогулка (Аксессуары вне дома):</strong> Стиль, который бережет планету.</p>
+			<p>Вместительные, прочные и легкие сумки для покупок и прогулок. Легко помещаются в карман, раскрываются до внушительных размеров.</p>
+		</div>
+		<div class="stories-nav-vertical">
 			<!-- Правый блок: карусель фотогалереи -->
-			<div class="carousel" id="carousel-3">
+        	<div class="carousel" id="carousel-3">
 				<div class="carousel-inner">
-					<img src="gallery/avoska-01.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо" class="active" onclick="openModal(this.src)">
+					<img src="gallery/avoska-01.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Эко-авоська «Классика»" class="active" onclick="openModal(this.src)">
 					<img src="gallery/avoska-02.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
 					<img src="gallery/avoska-03.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
 				</div>
@@ -129,10 +127,8 @@
 					<span class="dot" onclick="currentSlide(2, 'carousel-3')"></span>
 				</div>
 			</div>
-			<br>
-			<div id="hr-line"></div>
-			<h3 style="text-align: center;">Стоимость работы</h3>
-			<div class="price-list">
+			<div style="margin-top: 15px">
+				<h3 style="text-align: center;">Стоимость работы</h3>
 				<div class="price-item">
 					<span class="price-name">Авоська</span>
 					<span class="price-dots"></span>
@@ -149,11 +145,60 @@
 					<span class="price-value">от 1200₽</span>
 				</div>
 			</div>
-        </div>
-    </div>
-    <div class="about-text-zone">
-		<p><strong>!ВНИМАНИЕ!</strong> Стоимость указана за работу без учета материалов. Натуральный хлопок и джут рассчитываются отдельно под ваши размеры.</p>
-	</div>					
+		</div>
+	</div>	
+	<div id="hr-line"></div>		
+	<div class="stories-header-wrapper">	
+		<div class="stories-nav-vertical">
+			<h3>КОВРИКИ, САЛФЕТКИ</h3>
+			<p><strong>Коврики и столовая сервировка:</strong> Мягкое утро для ваших ног. Массажный, невероятно тактильный и теплый коврик ручной работы. Плотный рельефный узор из натурального джута или толстого хлопкового шнура приятно массирует стопы, даря ощущение расслабления с первых секунд. Идеал для спальни, чтобы утро начиналось с мягкого прикосновения, или для ванной комнаты (джут мгновенно впитывает влагу и быстро сохнет).</p>
+			<p><strong>Сервировочные салфетки:</strong> Эстетичные подставки под горячее и плейсматы, которые превратят обычную трапезу в семейный ужин. Они надежно защищают поверхность стола от тепла посуды, капель и царапин. Салфетки из джута добавляют столу природного шарма, а хлопковые салфетки создадут праздничную атмосферу в стиле сканди.</p>
+		</div>
+		<div class="stories-nav-vertical">
+			<!-- Правый блок: карусель фотогалереи -->
+        	<div class="carousel" id="carousel-4">
+				<div class="carousel-inner">
+					<img src="gallery/avoska-01.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Эко-авоська «Классика»" class="active" onclick="openModal(this.src)">
+					<img src="gallery/avoska-02.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+					<img src="gallery/avoska-03.jpg" style="width: 100%; height: auto; max-width: 300px; alt="Декоративное кашпо. Фото в деталях" onclick="openModal(this.src)">
+				</div>
+				<!-- Кнопки управления -->
+				<button class="prev" onclick="moveSlide(-1, 'carousel-4')">&#10094;</button>
+				<button class="next" onclick="moveSlide(1, 'carousel-4')">&#10095;</button>
+				<!-- Точечки -->
+				<div class="carousel-dots">
+					<span class="dot active" onclick="currentSlide(0, 'carousel-4')"></span>
+					<span class="dot" onclick="currentSlide(1, 'carousel-4')"></span>
+					<span class="dot" onclick="currentSlide(2, 'carousel-4')"></span>
+				</div>
+			</div>
+			<div style="margin-top: 15px">
+				<h3 style="text-align: center;">Стоимость работы</h3>
+				<div class="price-item">
+					<span class="price-name">Салфетка</span>
+					<span class="price-dots"></span>
+					<span class="price-value">от 300₽</span>
+				</div>
+				<div class="price-item">
+					<span class="price-name">Коврик</span>
+					<span class="price-dots"></span>
+					<span class="price-value">от 500₽</span>
+				</div>
+			</div>
+		</div>
+	</div>	
+	<div id="hr-line"></div>	
+			
+	
+	<!-- Блок с историями -->
+	<div class="story-card">
+		<p><strong>!ВНИМАНИЕ!</strong> Стоимость указана за работу без учета материалов. Натуральный хлопок и джут рассчитываются отдельно под ваши размеры. Если у Вас нить с недостатками, то стоимость работы будет выше.</p>
+	</div>
+	
+	<!-- Кнопка возврата к меню в левом нижнем углу -->
+	<a href="#top" class="back-to-menu-btn" title="Вернуться к меню">
+		<span class="arrow-icon">&#8593;</span>
+	</a>
 
 	<script>
 	<!-- скрипт для работы карусели -->
@@ -204,6 +249,6 @@
 		<span class="close-modal">&times;</span>
 		<img class="modal-content" id="full-img">
 	</div>
-
+	
 </body>
 </html>
