@@ -4,7 +4,7 @@ html {
 }
 
 body {
-	padding: 5px; 
+	padding: 0px; 
 	font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif;
 	color: #1B365D; 
 	background-image: url('img/fon_body.jpg');
@@ -47,7 +47,7 @@ p {
 /* Общий контейнер для шапки */
 .stories-header-wrapper {
 	display: flex;
-	gap: 30px;
+	gap: 20px;
 	max-width: 700px; /* Держим общую ширину равной ширине ваших карточек */
 	margin: 30px auto;
 	padding: 0 10px;
@@ -172,7 +172,7 @@ p {
 /* Парящая стеклянная кнопка «Назад к меню» */
 .back-to-menu-btn {
 	position: fixed;
-	bottom: 50px;            /* Отступ от нижнего края экрана */
+	bottom: 60px;            /* Отступ от нижнего края экрана */
 	left: 25px;              /* Прижимаем строго к левому краю */
 	z-index: 1500;            /* Кнопка будет всегда поверх текстов и фото */
 	/* Стеклянный стиль (Frozen Glass) */
