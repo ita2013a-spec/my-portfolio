@@ -12,369 +12,375 @@
 	<link rel="icon" href="favicon.png" type="image/png">
 	
 	<style>
-	
 /* --- СТИЛИ ПО УМОЛЧАНИЮ (Для больших экранов компьютеров) --- */
 	/* Включаем плавную прокрутку для всей страницы */
 	html {
 		scroll-behavior: smooth;
 	}
-        body { margin: 0; 
-			display: flex; 
-			height: 100vh; 
-			font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif; 
-			overflow: hidden; 
-			background-image: url('img/fon_body.jpg');
-			/* 100% — строго по ширине страницы, auto — высота подстроится пропорционально */
-			background-size: cover; 
-			background-position: top center;
-			background-attachment: fixed; /* Ткань застынет, а текст будет скользить поверх неё */
-			background-repeat: no-repeat;
-		}
-		
-        /* Левое узкое меню */
-        nav { 
-            width: 200px;
-			height: 100vh;			
-            background: url(img/down_bg.jpg) repeat;
-			color: white; 
-            display: flex; 
-            flex-direction: column; 
-            padding: 20px;
-            box-sizing: border-box;
-			position: relative; /* Обязательно для позиционирования линии */
-			overflow-y: auto; /* Если пункты не влезают по высоте, включается вертикальная прокрутка */
-        }
-		
-		/* Создаем вертикальную линию из рисунка */
-		nav:after {
-			content: "";
-			position: absolute;
-			top: 0;
-			right: 0;           /* Прижимаем к правому краю nav */
-			width: 8px;        /* Ширина вашей линии */
-			height: 100%;       /* На всю высоту меню */
-			background-image: url('img/line_y.png');
-			background-repeat: repeat-y; /* Повтор строго сверху вниз */
-			background-size: contain;    /* Чтобы рисунок вписался в 15px по ширине */
-		}
-		
-        nav a { 
-            color: #1B365D;
-            text-decoration: none; 
-            margin: 10px 0; 
-            font-weight: bold;
-        }
-		
-        nav a:hover { color: white; }
-			/* Основная область */
-			.main-wrapper { 
-            flex: 1; 
-            display: flex; 
-            flex-direction: column; 
-        }
-		
-		/* Специальный класс для ссылок или заголовков в меню */
-		.nav-blur-box {
-			display: block;            /* Растягиваем на всю ширину меню */
-			padding: 12px;
-			margin: 10px 5px;
-    
-			/* Используем белый цвет, но всего на 15% прозрачности */
-			background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 100%);
-    
-			/* Глубокое размытие */
-			backdrop-filter: blur(5px);
-			-webkit-backdrop-filter: blur(5px);
-    
-			/* Белая полупрозрачная рамка добавит блеска краям */
-			border: 1px solid rgba(255, 255, 255, 0.2);
-			border-radius: 10px;
-    
-			/* Мягкое свечение вместо черной тени */
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-		}
-		
-		.nav-blur-box:hover {
-			background: rgba(0, 0, 0, 0.4); /* Затемнение при наведении */
-		}
-		
-		.nav-blur-box.active {
-			background: rgba(200, 240, 200, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
-			border-left: 4px solid #0B2E13;              /* зеленая акцентная полоса слева */
-			box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
-		}
-		
-		/* Меняем цвет ссылки внутри активной плашки */
-		.nav-blur-box.active a {
-			color: #094F2B !important; 
-		}
-		
-        iframe { 
-            flex: 1; 
-            border: none; 
-            width: 100% !important; 
-			padding: 0 !important; 
-			margin: 0 !important;
-        }
-		
-		#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
-			background: url(img/line.png) repeat-x;
-			height: 10px;
-		}
-		
-		.centered-img {
-			display: block;    /* Превращаем в блок */
-			border-radius: 20px;
-			border: 5px solid rgba(255, 255, 255, 0.3); /* Стеклянный бортик */
-			margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
-			object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
-		}
-		
-		.footer-contacts {
-			display: flex;
-			justify-content: space-around; /* Распределяем контакты по всей ширине */
-			align-items: center;
-			padding: 15px 20px;
-			background: rgba(255, 255, 255, 0.4); 
-			backdrop-filter: blur(5px);
-			border-top: 1px solid rgba(255, 255, 255, 0.2);
-			margin-top: 0px;
-			font-weight: bold;
-		}
-		
-		.contact-item {
-			text-align: center;
-		}
-		
-		.contact-item span {
-			display: block;
-			font-size: 14px;
-			text-transform: uppercase;
-			letter-spacing: 1px;
-			color: #1B365D; /* Темно-синий акцент */
-			margin-bottom: 5px;
-		}
-		
-		.contact-item a {
-			color: #1a4b84;
-			text-decoration: none;
-			border-bottom: 1px dashed #1a4b84; /* Пунктирное подчеркивание выглядит стильно */
-			transition: 0.3s;
-		}
-		
-		.contact-item a:hover {
-			color: #0B2E13; /* Зеленый при наведении*/
-			border-bottom-color: #4CAF50;
-		}
-		
-		/* --- СТИЛИ ДЛЯ КНОПОК УПРАВЛЕНИЯ (По умолчанию скрыты на компьютерах) --- */
-		.mobile-menu-toggle, .mobile-menu-close {
-			display: none; 
-		}
-		
-		/* --- СТИЛИ ПО УМОЛЧАНИЮ (Для больших экранов компьютеров) --- */
-		.contacts-header {
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			margin: 0;
-			padding: 0;
-		}
-
-		.footer-arrow {
-			display: none !important; /* Скрываем мобильные подсказки и стрелочку на ПК */
-		}
-
-		.main-phone-p {
-			margin: 5px 0 0 0; /* Минимальный отступ между надписью и номером */
-			padding: 0;
-		}
-
-		.main-phone-p a {
-			color: #000080;
-			text-decoration: none;
-			font-weight: bold;
-		}
-
-		/* Контент с соцсетями и адресом на ПК виден ВСЕГДА и стоит в общем ряду */
-		.contacts-hidden-content {
-			display: flex;
-			justify-content: space-around;
-			align-items: center;
-			gap: 60px; /* Расстояние между адресом и соцсетями на ПК */
-		}
-
-/* --- 📱 МАГИЯ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Меньше 768px) --- */
-		@media (max-width: 768px) {
-    
-			/* 1. Главная обертка контента на index.html должна занять весь экран */
-    .main-wrapper {
-        width: 100% !important;
-        max-width: 100% !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
-        margin: 0 !important;
-        box-sizing: border-box;
-    }
-
-    /* 2. Сам фрейм намертво растягиваем от края до края экрана телефона */
-    iframe[name="content-frame"] {
-        width: 100% !important;
-        max-width: 100% !important;
-        border: none !important;
-        padding: 0 !important;
-        margin: 0 !important;
-    }
-
-			
-			
-			/* Кнопка открытия меню в левом верхнем углу сайта */
-			.mobile-menu-toggle {
-				display: block; /* Показываем только на телефонах */
-				position: fixed;
-				top: 15px;
-				left: 15px;
-				z-index: 1500; /* Кнопка всегда поверх всего */
-				background: rgba(26, 75, 132, 0.85); /* Ваш синий цвет с прозрачностью */
-				backdrop-filter: blur(5px);
-				color: white;
-				border: 1px solid rgba(255, 255, 255, 0.2);
-				padding: 10px 15px;
-				border-radius: 20px;
-				font-weight: bold;
-				font-size: 14px;
-				cursor: pointer;
-				box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-			}
-
-			/* Меню превращается в выезжающую шторку */
-			nav {
-				position: fixed !important;
-				top: 0;
-				left: -220px; /* Полностью прячем меню за левую границу экрана (200px ширина + 20px запас) */
-				width: 200px;
-				height: 100vh;
-				
-				/* 🛡️ ЗАЩИТА ОТ СЖАТИЯ (Новое!): */
-				min-height: 100vh !important; 
-				display: flex !important;
-				flex-direction: column !important; 
-				
-				
-				z-index: 2000; /* Меню выезжает поверх центрального контента */
-				transition: left 0.4s ease-in-out; /* Эффект плавного скольжения */
-				box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
-				
-				/* 🎪 МАГИЯ ПРОКРУТКИ: */
-				overflow-y: auto; /* Если пункты не влезают по высоте, включается вертикальная прокрутка */
-				-webkit-overflow-scrolling: touch; /* Делает прокрутку пальцем на смартфонах очень плавной */
-        
-				/* Добавим небольшой отступ снизу, чтобы самый нижний пункт меню не прижимался к краю при прокрутке */
-				padding-bottom: 30px !important; 
-				box-sizing: border-box;
-			}
-
-			/* Класс, который JavaScript будет добавлять при клике для открытия */
-			nav.open {
-				left: 0; /* Меню плавно выезжает на экран */
-			}
-
-			/* Кнопка-крестик внутри выехавшего меню */
-			.mobile-menu-close {
-				display: block;
-				align-self: flex-end; /* Сдвигаем в правый верхний угол меню */
-				background: none;
-				border: none;
-				color: #1B365D;
-				font-size: 35px;
-				cursor: pointer;
-				line-height: 1;
-				margin-bottom: 10px;
-			}
-
-			/* Центральный контент теперь занимает 100% ширины телефона! */
-			.main-wrapper {
-				width: 100% !important;
-				padding-top: 60px; /* Делаем отступ сверху, чтобы кнопка «☰ Меню» не перекрывала контент */
-				background: url(img/top_bg.jpg);
-			}
-		    
-			.footer-contacts {
-				position: fixed !important;
-				bottom: 0;
-				left: 0;
-				width: 100%;
-				z-index: 1400;
-				flex-direction: column; /* На телефонах элементы встают друг под друга */
-				justify-content: flex-start;
-				background: rgba(255, 255, 255, 0.2) !important;
-				backdrop-filter: blur(12px) !important;
-				-webkit-backdrop-filter: blur(12px) !important;
-				border-top: 1px solid rgba(255, 255, 255, 0.4);
-				/* Жестко запираем высоту закрытой шторки */
-				height: 45px !important; 
-				max-height: 45px !important; 
-				padding: 0 15px !important; 
-				box-sizing: border-box;
-				overflow: hidden;
-				transition: max-height 0.4s ease-in-out, height 0.4s ease-in-out, background 0.3s;
-			}
-
-			/* Класс расширения, который будет добавлять JavaScript при клике */
-			.footer-contacts.expanded {
-				height: auto !important;
-				max-height: 300px !important; 
-				background: rgba(255, 255, 255, 0.35) !important;
-				padding-bottom: 20px !important;
-			}
-
-			/* Оформляем верхнюю строчку на телефонах в один ряд */
-			.contacts-header {
-				flex-direction: row !important;
-				justify-content: space-between !important;
-				width: 100%;
-				height: 45px !important; 
-			}
-
-			.mobile-tap-text {
-				display: inline !important;
-				font-size: 11px !important;
-				color: #1b4d22; 
-				font-weight: bold;
-				text-transform: uppercase;
-			}
-
-			.main-phone-p {
-				margin: 0 !important;
-				line-height: 1 !important;
-			}
 	
-			.main-phone-p a {
-				font-size: 13px !important;
-			}
-
-			/* Показываем стрелочку-уголок */
-			.footer-arrow {
-				display: inline-block !important;
-				color: #000080;
-				font-size: 10px;
-				transition: transform 0.4s;
-			}
-
-			/* При раскрытии шторки стрелочка переворачивается вниз */
-			.footer-contacts.expanded .footer-arrow {
-				transform: rotate(180deg);
-			}
-
-			/* Скрываемая часть с соцсетями и адресом */
-			.contacts-hidden-content {
-				margin-top: 15px;
-				flex-direction: column;
-				gap: 12px;
-				width: 100%;
-			}
-		}
+    body { 
+		margin: 0; 
+		display: flex; 
+		height: 100vh; 
+		font-family: "Comic Sans MS", "Comic Sans", "Chalkboard SE", "Comic Neue", sans-serif; 
+		overflow: hidden; 
+		background-image: url('img/fon_body.jpg');
+		/* 100% — строго по ширине страницы, auto — высота подстроится пропорционально */
+		background-size: cover; 
+		background-position: top center;
+		background-attachment: fixed; /* Ткань застынет, а текст будет скользить поверх неё */
+		background-repeat: no-repeat;
+	}
 		
+    /* Левое узкое меню */
+    nav { 
+        width: 200px;
+		height: 100vh;			
+        background: url(img/down_bg.jpg) repeat;
+		color: white; 
+        display: flex; 
+        flex-direction: column; 
+        padding: 20px;
+        box-sizing: border-box;
+		position: relative; /* Обязательно для позиционирования линии */
+		overflow-y: auto; /* Если пункты не влезают по высоте, включается вертикальная прокрутка */
+    }
+		
+	/* Создаем вертикальную линию из рисунка */
+	nav:after {
+		content: "";
+		position: absolute;
+		top: 0;
+		right: 0;           /* Прижимаем к правому краю nav */
+		width: 8px;        /* Ширина вашей линии */
+		height: 100%;       /* На всю высоту меню */
+		background-image: url('img/line_y.png');
+		background-repeat: repeat-y; /* Повтор строго сверху вниз */
+		background-size: contain;    /* Чтобы рисунок вписался в 15px по ширине */
+	}
+		
+    nav a { 
+        color: #1B365D;
+        text-decoration: none; 
+        margin: 10px 0; 
+        font-weight: bold;
+    }
+		
+    nav a:hover { color: white; }
+		/* Основная область */
+		.main-wrapper { 
+        flex: 1; 
+        display: flex; 
+        flex-direction: column; 
+    }
+		
+	/* Специальный класс для ссылок или заголовков в меню */
+	.nav-blur-box {
+		display: block;            /* Растягиваем на всю ширину меню */
+		padding: 12px;
+		margin: 10px 5px;
+		/* Используем белый цвет, но всего на 15% прозрачности */
+		background: linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 100%);
+		/* Глубокое размытие */
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		/* Белая полупрозрачная рамка добавит блеска краям */
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		border-radius: 10px;
+		/* Мягкое свечение вместо черной тени */
+		box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+	}
+		
+	.nav-blur-box:hover {
+		background: rgba(0, 0, 0, 0.4); /* Затемнение при наведении */
+	}
+		
+	.nav-blur-box.active {
+		background: rgba(200, 240, 200, 0.6) !important; /* Ваш сочный зеленый с прозрачностью */
+		border-left: 4px solid #0B2E13;              /* зеленая акцентная полоса слева */
+		box-shadow: 0 4px 15px rgba(46, 125, 50, 0.3);
+	}
+		
+	/* Меняем цвет ссылки внутри активной плашки */
+	.nav-blur-box.active a {
+		color: #094F2B !important; 
+	}
+		
+    iframe { 
+        flex: 1; 
+        border: none; 
+        width: 100% !important; 
+		padding: 0 !important; 
+		margin: 0 !important;
+    }
+		
+	#hr-line { /* узорна¤ горизонтальна¤ лини¤ */
+		background: url(img/line.png) repeat-x;
+		height: 10px;
+	}
+		
+	.centered-img {
+		display: block;    /* Превращаем в блок */
+		border-radius: 20px;
+		border: 5px solid rgba(255, 255, 255, 0.3); /* Стеклянный бортик */
+		margin: 0 auto;    /* Автоматические отступы слева и справа центрируют её */
+		object-fit: cover; /* Чтобы фактура не сплющилась при фиксированных размерах */
+	}
+		
+	/* --- СТИЛИ ДЛЯ КНОПОК УПРАВЛЕНИЯ (По умолчанию скрыты на компьютерах) --- */
+	.mobile-menu-toggle, .mobile-menu-close {
+		display: none; 
+	}
+		
+/* --- 📱 МАГИЯ ДЛЯ МОБИЛЬНЫХ ЭКРАНОВ (Меньше 768px) --- */
+	@media (max-width: 768px) {
+    
+		/* 1. Главная обертка контента на index.html должна занять весь экран */
+		.main-wrapper {
+			width: 100% !important;
+			max-width: 100% !important;
+			padding-left: 0 !important;
+			padding-right: 0 !important;
+			margin: 0 !important;
+			box-sizing: border-box;
+		}
+
+		/* 2. Сам фрейм намертво растягиваем от края до края экрана телефона */
+		iframe[name="content-frame"] {
+			width: 100% !important;
+			max-width: 100% !important;
+			border: none !important;
+			padding: 0 !important;
+			margin: 0 !important;
+		}
+			
+		/* Кнопка открытия меню в левом верхнем углу сайта */
+		.mobile-menu-toggle {
+			display: block; /* Показываем только на телефонах */
+			position: fixed;
+			top: 15px;
+			left: 15px;
+			z-index: 1500; /* Кнопка всегда поверх всего */
+			background: rgba(26, 75, 132, 0.85); /* Ваш синий цвет с прозрачностью */
+			backdrop-filter: blur(5px);
+			color: white;
+			border: 1px solid rgba(255, 255, 255, 0.2);
+			padding: 10px 15px;
+			border-radius: 20px;
+			font-weight: bold;
+			font-size: 14px;
+			cursor: pointer;
+			box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+		}
+
+		/* Меню превращается в выезжающую шторку */
+		nav {
+			position: fixed !important;
+			top: 0;
+			left: -220px; /* Полностью прячем меню за левую границу экрана (200px ширина + 20px запас) */
+			width: 200px;
+			height: 100vh;
+			/* 🛡️ ЗАЩИТА ОТ СЖАТИЯ (Новое!): */
+			min-height: 100vh !important; 
+			display: flex !important;
+			flex-direction: column !important; 
+			z-index: 2000; /* Меню выезжает поверх центрального контента */
+			transition: left 0.4s ease-in-out; /* Эффект плавного скольжения */
+			box-shadow: 5px 0 25px rgba(0, 0, 0, 0.3);
+			/* 🎪 МАГИЯ ПРОКРУТКИ: */
+			overflow-y: auto; /* Если пункты не влезают по высоте, включается вертикальная прокрутка */
+			-webkit-overflow-scrolling: touch; /* Делает прокрутку пальцем на смартфонах очень плавной */  
+			/* Добавим небольшой отступ снизу, чтобы самый нижний пункт меню не прижимался к краю при прокрутке */
+			padding-bottom: 30px !important; 
+			box-sizing: border-box;
+		}
+
+		/* Класс, который JavaScript будет добавлять при клике для открытия */
+		nav.open {
+			left: 0; /* Меню плавно выезжает на экран */
+		}
+
+		/* Кнопка-крестик внутри выехавшего меню */
+		.mobile-menu-close {
+			display: block;
+			align-self: flex-end; /* Сдвигаем в правый верхний угол меню */
+			background: none;
+			border: none;
+			color: #1B365D;
+			font-size: 35px;
+			cursor: pointer;
+			line-height: 1;
+			margin-bottom: 10px;
+		}
+
+		/* Центральный контент теперь занимает 100% ширины телефона! */
+		.main-wrapper {
+			width: 100% !important;
+			padding-top: 60px; /* Делаем отступ сверху, чтобы кнопка «☰ Меню» не перекрывала контент */
+			background: url(img/top_bg.jpg);
+		}
+	}
+		
+		
+		
+/* Контейнер подвала зафиксирован внизу */
+    .bottom-bar {
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		padding: 15px 0;
+		text-align: center;
+		cursor: pointer;
+		overflow: hidden; /* Скрывает края картинки, если они выходят за рамки */
+		/* Начальное состояние: полупрозрачный фон с размытием */
+		background-color: rgba(255, 255, 255, 0.2); 
+		backdrop-filter: blur(15px);
+		-webkit-backdrop-filter: blur(15px); /* Поддержка для Safari */
+		color: #1B365D;
+		font-weight: 600;
+		/* Аккуратная рамка и тень */
+		border-top: 1px solid rgba(11, 70, 50, 0.15);
+		box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.05);
+		/* Плавный переход для подъема панели */
+		transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.4s ease;
+		transform: translateY(0);
+    }
+
+	/* Псевдоэлемент, который хранит скрытую картинку фоном */
+	.bottom-bar::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		z-index: -1; /* Картинка уходит под текст */
+		/* Настройки вашей картинки */
+		background-image: url('img/top_bg.jpg');
+		background-position: bottom center;
+		background-size: 20%;
+		background-repeat: repeat;
+		/* По умолчанию картинка полностью прозрачна */
+		opacity: 0;
+		/* Плавное проявление картинки за 0.4 секунды */
+		transition: opacity 0.4s ease-in-out; 
+	}
+	
+	/* --- СОСТОЯНИЕ ПРИ НАЖАТИИ (ФОКУСЕ) --- */
+	/* Приподнимаем плашку и усиливаем тень */
+	.bottom-bar.is-open {
+		transform: translateY(-10px);
+		box-shadow: 0 -5px 25px rgba(11, 70, 50, 0.2);
+	}
+
+	/* Делаем фоновую картинку видимой при нажатии */
+	.bottom-bar.is-open::before {
+		opacity: 1;
+	}
+
+	/* Оставляем стили для ссылок внутри */
+	.extra-info a {
+		color: #1B365D; 
+		text-decoration: none;
+		border-bottom: 1px dashed #0b4632;
+		transition: opacity 0.2s ease;
+	}
+
+	.extra-info a:hover {
+		opacity: 0.8;
+		border-bottom-style: solid;
+	}
+
+	.phone-info {
+		font-size: 19px;
+		font-weight: 700;
+	}
+
+    /* Внутренний контейнер для элементов */
+    .bottom-bar__content {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: 30px;
+		max-width: 1200px;
+		margin: 0 auto;
+		padding: 0 20px;
+    }
+
+    /* Скрываем адрес и соцсети по умолчанию */
+    .extra-info {
+		opacity: 0;
+		visibility: hidden;
+		max-width: 0;
+		white-space: nowrap;
+		transition: all 0.3s ease-in-out;
+    }
+
+    /* --- МАГИЯ АНИМАЦИИ ПРИ НАЖАТИИ (ФОКУСЕ) --- */
+    /* Приподнимаем панель, меняем фон */
+    .bottom-bar.is-open {
+		transform: translateY(-10px);
+		background-color: #111;
+    }
+
+    /* Показываем скрытые элементы при нажатии */
+    .bottom-bar.is-open .extra-info {
+		opacity: 1;
+		visibility: visible;
+		max-width: 400px; /* Ограничиваем ширину для корректной анимации */
+    }
+
+	/* Контейнер для телефона и стрелочки */
+	.phone-container {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		gap: 8px; /* Расстояние между телефоном и стрелочкой */
+		position: relative;
+	}
+
+	/* Создаем стрелочку с помощью псевдоэлемента ::after */
+	.phone-container::after {
+		content: "▲"; /* Символ треугольной стрелочки вверх */
+		font-size: 20px;
+		color: #1B365D; /* Тот же темно-зеленый цвет */
+		/* Плавный поворот стрелочки за 0.4 секунды */
+		transition: transform 0.4s ease-in-out, opacity 0.3s ease;
+		transform: rotate(0deg); /* Начальное положение — смотрит вверх */
+		display: inline-block;
+	}
+
+	/* --- МАГИЯ ПОВОРОТА ПРИ НАЖАТИИ --- */
+	/* Когда нажимают на подвал, стрелочка внутри phone-container плавно переворачивается */
+	.bottom-bar.is-open .phone-container::after {
+		transform: rotate(180deg); /* Разворачиваем стрелочку вниз */
+		color: #1B365D; /* Можно изменить цвет активной стрелки, если захочется */
+	}
+
+    /* --- МОБИЛЬНАЯ ВЕРСИЯ (Адаптив нижней части под 3 строчки) --- */
+		@media (max-width: 768px) {
+			.bottom-bar__content {
+				flex-direction: column; /* Выстраиваем в стек (3 строчки) */
+				gap: 15px;
+			}
+
+			/* Изменяем анимацию раскрытия для мобильных (по вертикали) */
+			.bottom-bar.is-open .extra-info {
+				max-height: 100px; 
+			}
+
+			.extra-info {
+				max-width: none;
+				max-height: 0;
+				overflow: hidden;
+			}
+    	
+			/* Опционально: на мобильных экранах делаем стрелочку чуть заметнее */
+			.phone-container::after {
+				font-size: 14px;
+			}
+		}	
     </style>
 </head>
 
@@ -407,35 +413,25 @@
         <!-- Сюда грузятся страницы -->
         <iframe name="content-frame" src="main_str.html"></iframe>
 		<!-- низ страницы с контактами -->
-		<div class="footer-contacts" id="footer-contacts">
-		
-			<!-- 📞 Эта строчка на телефонах будет аккуратной кнопкой, а на ПК — обычным заголовком -->
-			<div class="contacts-header" onclick="toggleFooterContacts()">
-				<span class="mobile-tap-text">📞 Телефон для связи:</span>
-				<p class="main-phone-p">
-					<a href="tel:+79286144211" onclick="event.stopPropagation();">+7 (928) 614-42-11</a>
-				</p>
-				<span class="footer-arrow">▲</span>
+	</div>	
+	
+	<!-- Выезжающая строчка с контактами -->
+	<footer class="bottom-bar">
+		<div class="bottom-bar__content">
+      		<!-- Этот блок появится слева на ПК -->
+			<div class="extra-info address">📍 г. Ростов-на-Дону</div>
+			<!-- Этот блок виден всегда -->
+			<div class="phone-container">
+				<div class="phone-info">📞 +7 (928) 614-42-11</div>
 			</div>
-        
-			<!-- 📦 Блок с адресом и соцсетями, который прячется на смартфонах -->
-			<div class="contacts-hidden-content">
-				<div class="contact-item">
-					<span>📍 Мастерская:</span>
-					<p style="color: #1B365D;">г. Ростов-на-Дону</p>
-				</div>
-				<div class="contact-item">
-					<span>✉️ Соцсети и мессенджеры<br>привязаны к номеру телефона:</span>
-					<div class="social-links">
-						<a href="https://t.me" target="_blank">Telegram</a>
-						<a href="https://wa.me" target="_blank">WhatsApp</a>
-					</div>
-				</div>
-		
+			<!-- Этот блок появится справа на ПК -->
+			<div class="extra-info socials">
+				🌐 <a href="https://t.me" target="_blank">Telegram</a> | 
+				<a href="#">VK</a> | 
+				<a href="https://wa.me" target="_blank">WhatsApp</a>
 			</div>
-		</div>
-	</div>
-
+        </div>
+	</footer>
 <script>
 function highlightMenu(activeId) {
     const allBoxes = document.querySelectorAll('.nav-blur-box');
@@ -496,11 +492,22 @@ document.querySelectorAll('nav a').forEach(link => {
     });
 });
 
-function toggleFooterContacts() {
-    const footer = document.getElementById('footer-contacts');
-    // Тоггл плавно добавляет или убирает класс, который меняет высоту
-    footer.classList.toggle('expanded');
-}
+
+/* стрелочка в нижнем меню */
+const bottomBar = document.querySelector('.bottom-bar');
+
+  bottomBar.addEventListener('click', function(event) {
+    // Переключаем класс opens/closes при каждом клике
+    this.classList.toggle('is-open');
+  });
+
+  // Дополнительно: закрывать панель, если кликнули в любое другое место сайта
+  document.addEventListener('click', function(event) {
+    if (!bottomBar.contains(event.target)) {
+      bottomBar.classList.remove('is-open');
+    }
+  });
+  
 </script>
 
 </body>
