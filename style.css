@@ -173,8 +173,8 @@ p {
 .back-to-menu-btn {
 	position: fixed;
 	bottom: 60px;            /* Отступ от нижнего края экрана */
-	left: 25px;              /* Прижимаем строго к левому краю */
-	z-index: 1500;            /* Кнопка будет всегда поверх текстов и фото */
+	right: 25px;              /* Прижимаем строго к левому краю */
+	z-index: 2000;            /* Кнопка будет всегда поверх текстов и фото */
 	/* Стеклянный стиль (Frozen Glass) */
 	background: rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(8px);
@@ -192,13 +192,6 @@ p {
 	transition: all 0.3s ease;
 }
 
-/* в мобильном режиме кнопка «Назад к меню» */
-@media (max-width: 768px) {
-	.back-to-menu-btn {
-		opacity: 1;
-	}
-}
-		
 /* Стилизация самой стрелочки для анимации */
 .back-to-menu-btn .arrow-icon {
 	font-size: 16px;
@@ -213,11 +206,6 @@ p {
 	transform: translateY(-3px);     /* Кнопка изящно приподнимается */
 }
 		
-/* При наведении стрелочка делает небольшой толчок влево */
-.back-to-menu-btn:hover .arrow-icon {
-	transform: translateX(-4px);
-}
-
 /* Контейнер карусели (ограничивает ширину по центру сайта) */
 .multi-carousel {
     position: relative;
