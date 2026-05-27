@@ -152,7 +152,7 @@ p {
 	max-width: 650px;
 	margin: 30px auto;
 	padding: 30px;
-	background: rgba(255, 255, 255, 0.5); /* Наше любимое стекло */
+	background: rgba(255, 255, 255, 0.4); /* Наше любимое стекло */
 	backdrop-filter: blur(10px);
 	border: 1px solid rgba(255, 255, 255, 0.3);
 	border-radius: 16px;
@@ -329,6 +329,14 @@ p {
 .carousel .prev, .carousel .next {
     opacity: 0;
     transition: opacity 0.3s;
+}
+
+/* в мобильном режиме стрелки должны быть всегда видны */
+@media (max-width: 768px) {
+	.carousel .prev, .carousel .next {
+		opacity: 1;
+		
+	}
 }
 
 .carousel:hover .prev, .carousel:hover .next {
