@@ -191,6 +191,13 @@ p {
 	align-items: center;
 	transition: all 0.3s ease;
 }
+
+/* в мобильном режиме кнопка «Назад к меню» */
+@media (max-width: 768px) {
+	.back-to-menu-btn {
+		opacity: 1;
+	}
+}
 		
 /* Стилизация самой стрелочки для анимации */
 .back-to-menu-btn .arrow-icon {
@@ -335,7 +342,6 @@ p {
 @media (max-width: 768px) {
 	.carousel .prev, .carousel .next {
 		opacity: 1;
-		
 	}
 }
 
