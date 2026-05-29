@@ -21,7 +21,10 @@
 	<!-- Главный верхний блок: картинка + меню -->
 	<div class="stories-header-wrapper">
 		<div class="stories-nav-vertical">
-			<img src="img/hello.jpg" alt="Моя красивая картинка приветствия" class="about-me-img">
+			<picture>
+				<source srcset="img/hello.webp" type="image/webp">
+				<img src="img/hello.jpg" alt="Моя красивая картинка приветствия" class="about-me-img">
+			</picture>
 		</div>
     	<!-- Стеклянное вертикальное меню -->
 		<div class="stories-nav-vertical">
@@ -55,7 +58,7 @@
 	<div id="hr-line"></div>
 	<!-- Кнопка возврата к меню в левом нижнем углу -->
 	<a href="#top" class="back-to-menu-btn" title="Вверх">
-		<span class="arrow-icon">&#8593;</span>
+		<span class="arrow-icon">&#11181;</span>
 	</a>
 		
 	<script>

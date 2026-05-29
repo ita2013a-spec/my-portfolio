@@ -47,7 +47,7 @@ p {
 /* Общий контейнер для шапки */
 .stories-header-wrapper {
 	display: flex;
-	gap: 20px;
+	gap: 30px;
 	max-width: 700px; /* Держим общую ширину равной ширине ваших карточек */
 	margin: 30px auto;
 	padding: 0 10px;
@@ -183,7 +183,7 @@ p {
 	box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 	border-radius: 20px;     /* Округлая аккуратная форма */
 	/* Шрифты и цвета */
-	font-size: 16px;
+	font-size: 20px;
 	font-weight: bold;
 	text-decoration: none;
 	padding: 10px 16px;
@@ -293,7 +293,7 @@ p {
 
 .carousel {
     position: relative;
-    width: max-content;
+    width: max-content;  /* Сжимается строго под физические пропорции фото */
     height: 300px;
 	max-height: 300px;       /* Страховка для разных экранов */
 	margin: 0 auto;          /* Центрирует карусель внутри ячейки таблицы */
@@ -311,7 +311,8 @@ p {
 .carousel-inner img {
     height: 100%;            /* Картинка строго занимает 300px по высоте */
     width: auto;             /* Ширина подстраивается автоматически, сохраняя пропорции */
-    object-fit: contain;     /* Гарантирует, что фото не сожмется и не обрежется */
+    max-width: 100%;
+	object-fit: contain;     /* Гарантирует, что фото не сожмется и не обрежется */
 	display: none; /* Скрываем все фото по умолчанию */
 }
 
@@ -328,6 +329,25 @@ p {
 
 /* в мобильном режиме стрелки должны быть всегда видны */
 @media (max-width: 768px) {
+    /* На смартфонах карусель больше не сжимается до max-content, 
+       а занимает фиксированную аккуратную область */
+    .carousel {
+        width: 92% !important; /* Встает ровно по ширине ваших стеклянных плашек */
+        max-width: 400px !important; /* Ограничиваем, чтобы на планшетах она не стала гигантской */
+        height: 280px !important; /* Чуть уменьшаем высоту для экранов телефонов */
+        margin: 0 auto;
+    }
+
+    /* ЖЕСТКИЙ ИЗОЛИРОВАННЫЙ ФИКС ДЛЯ SAFARI/IPHONE:
+       Включается только на маленьких экранах и не трогает ПК */
+    .carousel-inner img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: 100% !important;
+        box-sizing: border-box;
+        object-fit: cover !important; /* На телефоне аккуратно заполняет весь мобильный блок */
+    }	
+	
 	.carousel .prev, .carousel .next {
 		opacity: 1;
 	}
