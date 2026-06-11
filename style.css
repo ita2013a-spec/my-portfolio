@@ -604,4 +604,116 @@ p {
     }
 	
 	
-	
+/* ПОДПИСЬ НА КАРТИНКЕ НА ГЛАВНОЙ СТРАНИЦЕ Контейнер-коробочка, которая удерживает подпись внутри границ фото */
+.image-watermark-container {
+    position: relative;
+    display: inline-block; /* Сжимается строго под физический размер картинки */
+    width: 100%;
+    max-width: 450px;     /* Настройте под желаемую ширину вашего фото приветствия */
+}
+
+/* Настройки для самой картинки приветствия (чтобы она не ломала пропорции) */
+.image-watermark-container .about-me-img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* ✍️ Изящная парящая подпись курсивом */
+.photo-watermark {
+    position: absolute;
+    top: 20px;         /* Отступ от нижнего края фотографии */
+    left: 20px;          /* Отступ от правого края фотографии */
+    
+    /* Шрифты и наклон */
+    font-family: 'Monotype Corsiva', serif;
+    font-style: italic;   /* Превращает текст в красивый курсив */
+    font-size: 20px;
+    font-weight: 500;
+    color: #033500;
+    
+    /* Стеклянный полупрозрачный фон под буквами для идеальной читаемости */
+    background: rgba(200, 200, 200, 0.5); /* Легкий синеватый оттенок в стиль сайта */
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    padding: 6px 14px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.01);
+    
+    /* Защита от выделения текста мышкой */
+    user-select: none;
+    pointer-events: none; /* Пропускает клики мышки сквозь себя на фото */
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* 📱 Адаптивность для мобильного режима */
+@media (max-width: 768px) {
+    .welcome-row-container {
+        display: flex;
+        flex-direction: column; /* Картинка встанет НАД списком */
+        align-items: center;
+        gap: 20px;
+    }
+    .photo-watermark {
+        bottom: 15px;
+        right: 15px;
+        font-size: 12px; /* Чуть уменьшаем на экранах телефонов */
+        padding: 4px 10px;
+    }
+}	
+
+
+/* Л О Г О Т И П с З А Г О Л О В К О М */
+.site-header {
+  /* --- Ваше новое оформление (эффект стекла и размеры) --- */
+  max-width: 650px;
+  margin: 30px auto;
+  padding: 30px;
+  background: rgba(255, 255, 255, 0.4); 
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 16px;
+  color: #1B365D;
+  text-align: left; /* Текст на ПК будет выравниваться по левому краю */
+
+  /* --- Стили для расположения картинки и текста в ряд --- */
+  display: flex;
+  align-items: center; 
+  gap: 20px;           
+}
+
+/* Настройка логотипа */
+.header-logo {
+  max-width: 120px; /* Можно настроить под размер вашего логотипа */
+  width: 100%;
+  height: auto;
+}
+
+/* Сбрасываем стандартные внешние отступы у заголовков внутри стекла */
+.header-text h1 {
+  margin: 0 0 5px 0;
+  font-size: 24px; /* Можно настроить под себя */
+}
+
+.header-text p {
+  margin: 0;
+}
+
+/* Адаптив под мобильные устройства (меньше 768px) */
+@media (max-width: 768px) {
+  .site-header {
+    flex-direction: column; /* Картинка встает НАД текстом */
+    text-align: center;     /* На мобильных текст красиво центрируется внутри стекла */
+    margin: 15px;           /* Чтобы карточка не липла к краям экрана смартфона */
+  }
+  
+  .header-logo {
+    max-width: 90px;        /* Чуть уменьшаем логотип на мобильных */
+  }
+}
+
+
